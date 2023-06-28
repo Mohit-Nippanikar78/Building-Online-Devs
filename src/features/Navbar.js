@@ -7,7 +7,11 @@ const NavbarSlice = createSlice({
       left: 0,
       width: 0,
     },
-    activeId: null,
+    activeId: {
+      id: null,
+      left: 0,
+      width: 0,
+    },
     data: [
       { id: 1, name: "Products", hovered: false, active: false },
       { id: 2, name: "About Us", hovered: false, active: false },
@@ -21,6 +25,8 @@ const NavbarSlice = createSlice({
   },
   reducers: {
     setActiveId: (state, action) => {
+      const { id, left, width } = action.payload;
+
       state.activeId = action.payload;
     },
     setHoverSpan: (state, action) => {
