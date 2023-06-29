@@ -6,7 +6,12 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
-
+      backgroundColor: {
+        lime: "#D4F229",
+      },
+      color: {
+        lime: "#D4F229",
+      },
       fontSize: {
         "15px": "15px",
       },

@@ -1,0 +1,5 @@
+#homepage-heading-gradient {
+  background: -webkit-linear-gradient( #dae988 , #d4f229 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveId, setHoverSpan } from "../../features/Navbar";
@@ -6,9 +6,29 @@ import { setActiveId, setHoverSpan } from "../../features/Navbar";
 const Navbar = () => {
   let dispatch = useDispatch();
   const ulRef = useRef();
+  const [windowScrollY, setWindowScrollY] = useState(0);
   const { data, hoverSpan, activeId } = useSelector((state) => state.navbar);
+  useEffect(() => {
+    const handleScroll = (event) => {
+      setWindowScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex z-40 py-4 justify-around w-full fixed top-0 left-0">
+    <div
+      className="flex  z-40 py-4 justify-around w-full fixed top-0 left-0"
+      style={{
+        backdropFilter: windowScrollY > 50 && "blur(50px)",
+        boxShadow:
+          windowScrollY > 50 && " rgba(99, 99, 99, 0.2) 0px 1px 1px 0px",
+      }}
+    >
       <img src="./images/logo.png" alt="" />
       <ul
         onMouseOut={() => {
@@ -21,7 +41,7 @@ const Navbar = () => {
           }
         }}
         ref={ulRef}
-        className="relative flex overflow-hidden items-center  font-poppins text-15px text-white rounded-[8px] border-[2px] "
+        className="relative hidden lg:flex overflow-hidden items-center  font-poppins text-15px text-white rounded-[8px] border-[2px] "
       >
         {data.map((item, index) => {
           return <NavbarButton item={item} key={index} parentRef={ulRef} />;
@@ -66,7 +86,7 @@ const NavbarButton = ({ item, parentRef }) => {
             })
           );
         }}
-        className={`relative px-4 cursor-pointer ${
+        className={`relative px-4 cursor-pointer hover:text-[#3c3c3c] ${
           item.id == activeId.id && "text-[#3c3c3c]"
         }`}
       >

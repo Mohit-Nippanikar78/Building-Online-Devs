@@ -1,13 +1,13 @@
 import React from "react";
+import HomepageHead from "./Homepage-head";
+import HomepageCards from "./Homepage-cards";
 
 const Homepage = () => {
   return (
-    <div className="h-full">
-      <video
-        className="w-full w-screen"
-        src="./images/homepage-video.mp4"
-      ></video>
-    </div>
+    <>
+      <HomepageHead />
+      <HomepageCards />
+    </>
   );
 };
 
