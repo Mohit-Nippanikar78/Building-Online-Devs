@@ -9,7 +9,7 @@ import HomepageFooter from "./Homepage-footer";
 
 const Homepage = () => {
   return (
-    <div className="bg-homepageBg">
+    <div className="bg-homepageBg overflow-x-hidden">
       <HomepageHero />
       <div style={{ backgroundImage: "url('./images/homepage/main-bg.png')" }}>
         <HomepageJourney />

@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { nextCard, prevCard } from "../../features/Homecards";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../elements/CustomButton";
+import RightplayButton from "../elements/RightplayButton";
+import LeftplayButton from "../elements/LeftplayButton";
 
 const HomepageJourney = () => {
   let dispatch = useDispatch();
-  let navigate = useNavigate();
-  const [leftBtnHover, setLeftBtnHover] = useState(false);
-  const [rightBtnHover, setRightBtnHover] = useState(false);
   const { data, activeId } = useSelector((state) => state.homecards);
   return (
     <div className="relative flex  text-white z-30 w-2/3 m-auto ">
@@ -36,43 +35,13 @@ const HomepageJourney = () => {
           text={data[activeId - 1].buttonText}
           navLink={data[activeId - 1].buttonLink}
         />
-        <div className="flex justify-evenly items-center  my-4 ">
-          <div
-            onMouseOver={() => {
-              setLeftBtnHover(true);
-            }}
-            onMouseOut={() => {
-              setLeftBtnHover(false);
-            }}
-            onClick={() => {
-              dispatch(prevCard());
-            }}
-            className="mr-4 bg-homepageCardArrowBg rounded-sm cursor-pointer w-8 h-8 flex justify-center items-center hover:bg-lime transition-all duration-1000"
-          >
-            {leftBtnHover ? (
-              <img src="./images/homepage-card-left-hover.png" alt="" />
-            ) : (
-              <img src="./images/homepage-card-left.png" alt="" />
-            )}
-          </div>
-          <div
-            onMouseOver={() => {
-              setRightBtnHover(true);
-            }}
-            onMouseOut={() => {
-              setRightBtnHover(false);
-            }}
-            className="ml-4 bg-homepageCardArrowBg rounded-sm cursor-pointer w-8 h-8 flex justify-center items-center hover:bg-lime transition-all duration-1000"
-            onClick={() => {
-              dispatch(nextCard());
-            }}
-          >
-            {rightBtnHover ? (
-              <img src="./images/homepage-card-right-hover.png" alt="" />
-            ) : (
-              <img src="./images/homepage-card-right.png" alt="" />
-            )}
-          </div>
+        <div className="flex justify-evenly items-center  my-4">
+          <LeftplayButton func={() => {
+            dispatch(prevCard());
+          }} />
+          <RightplayButton func={() => {
+            dispatch(nextCard());
+          }} />
         </div>
       </div>
     </div>
