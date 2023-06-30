@@ -14,6 +14,7 @@ export default {
       },
       colors: {
         lime: "#D4F229",
+        infoBlue :"#3285DA"
       },
       fontSize: {
         "15px": "15px",
