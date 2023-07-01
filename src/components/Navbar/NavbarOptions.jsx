@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveId, setMobileNavWidth } from "../../features/Navbar";
+import { setActiveId } from "../../features/Navbar";
 
 const NavbarOptions = () => {
     const { data, navbarHeight, toggle } = useSelector((state) => state.navbar);
