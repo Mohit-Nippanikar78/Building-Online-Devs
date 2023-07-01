@@ -1,52 +1,36 @@
 import React, { useState } from "react";
 import "./styles.css";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+
 const HomepageHero = () => {
   const [btnHover, setBtnHover] = useState(false);
   //const framerScroll = useScroll();
-  const [ref, inView] = useInView({
-    threshold: 0.5,
-    triggerOnce: false,
-  });
-  const variants = {
-    visible: { opacity: 1, scale: 1 },
-    hidden: { opacity: 0, scale: 0.65 },
-  };
+
   return (
     <div className="h-full relative">
       <video
-        className="absolute top-0 right-0 w-full "
-        src="./images/homepage-video.mp4"
+        className="hidden lg:block absolute top-0 right-0 "
+        src="./images/homepage/hero-desktop.mp4"
         autoPlay={true}
         muted={true}
         loop={true}
       ></video>
-      <motion.div
-        className=" absolute bottom-0 flex justify-center items-end w-full h-screen"
-        // style={{
-        //   bottom: framerScroll.scrollY,
-        // }}
-        animate={inView ? "visible" : "hidden"}
-        variants={variants}
-        transition={{ duration: 2 }}
-        ref={ref}
-      >
-        <img
-          src="./images/scrolldownmouse.png"
-          className="animate-bounce w-max h-max mb-4"
-          alt=""
-        />
-      </motion.div>
-      <div className="relative w-1/2 h-screen flex flex-col justify-center items-start  text-white max-w-lg ml-40">
-        <div className="text-5xl capitalize font-extrabold tracking-[2px]">
-          <div className="mb-4">
+      <video
+        className="lg:hidden"
+        src="./images/homepage/hero-mobile.mp4"
+        autoPlay={true}
+        muted={true}
+        loop={true}
+      ></video>
+
+      <div className="relative lg:w-1/2 lg:ml-40 h-screen flex flex-col p-6 items-start  text-white max-w-lg ">
+        <div className=" text-3xl lg:text-5xl capitalize font-extrabold tracking-[2px]">
+          <div className="lg:mb-4 mb-2">
             <span id="homepage-heading-gradient">building </span>
             future
           </div>
           <div>online developers</div>
         </div>
-        <div className="font-xs   tracking-[0.001rem] text-xs my-4 max-w-md">
+        <div className="font-xs   tracking-[0.001rem] text-xs lg:my-4 my-8 max-w-md">
           Lorem ipsum dolor sit amet consectetur. Facilisi nunc eu egestas at
           blandit. Quisque egestas quam nibh et semper. Dictum sit a mi
           tristique in tincidunt porta tincidunt fringilla. Scelerisque magna
@@ -62,9 +46,8 @@ const HomepageHero = () => {
           }}
         >
           <div
-            className={`relative z-20 px-4 py-2 flex items-center  ${
-              btnHover ? "text-black" : "text-lime"
-            }`}
+            className={`relative z-20 px-4 py-2 flex items-center  ${btnHover ? "text-black" : "text-lime"
+              }`}
           >
             Start Your Journey Today{" "}
             <svg
@@ -88,11 +71,10 @@ const HomepageHero = () => {
             )} */}
 
           <div
-            className={`overflow-visible z-10 absolute top-0 left-0  h-full transition-all duration-700 ${
-              btnHover
-                ? "w-full bg-lime  px-4 py-2 rounded-md"
-                : "border px-4 py-2 rounded-md w-1/2 border-[#FFFFFF80] border-2 border-r-0"
-            }`}
+            className={`overflow-visible z-10 absolute top-0 left-0  h-full transition-all duration-700 ${btnHover
+              ? "w-full bg-lime  px-4 py-2 rounded-md"
+              : "border px-4 py-2 rounded-md w-1/2 border-[#FFFFFF80] border-2 border-r-0"
+              }`}
           ></div>
         </div>
       </div>

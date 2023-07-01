@@ -11,6 +11,7 @@ export default {
         homepageCard: "#3C3C3C",
         homepageBg: "#031229",
         homepageCardArrowBg: "#9B9B9B",
+        navy:"#031229"
       },
       colors: {
         lime: "#D4F229",
