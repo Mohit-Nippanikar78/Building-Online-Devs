@@ -73,7 +73,7 @@ const HomepageHero = () => {
           <div
             className={`overflow-visible z-10 absolute top-0 left-0  h-full transition-all duration-700 ${btnHover
               ? "w-full bg-lime  px-4 py-2 rounded-md"
-              : "border px-4 py-2 rounded-md w-1/2 border-[#FFFFFF80] border-2 border-r-0"
+              : " px-4 py-2 rounded-md w-1/2 border-[#FFFFFF80] border-2 border-r-0"
               }`}
           ></div>
         </div>

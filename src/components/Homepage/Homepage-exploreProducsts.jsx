@@ -42,7 +42,7 @@ const HomepageExploreProducts = () => {
                     <div className="capitalize text-2xl font-bold">
                         explore some of our best resources
                     </div>
-                    <div className="font-normal  py-6 text-sm">
+                    <div className="font-normal py-2 lg:py-6 text-sm">
                         Lorem ipsum sit amet consectetur. Feugiat massa in bibendum urna
                         risus massa tellus malesuada. Sagittis mus augue amet mattis. Lorem
                     </div>
@@ -52,13 +52,20 @@ const HomepageExploreProducts = () => {
                     animate={{ x: coursesX }}
                     initial={{ x: 0 }}
                     ref={coursesRef}
-                    className="flex p-12 pb-6 w-screen homepage-exploreProducts-cards"
+                    className="hidden lg:block flex p-12 snap-x  pb-6 w-screen homepage-exploreProducts-cards"
                 >
                     {courses.map((course, index) => {
                         return <ProductCard key={index} course={course} />;
                     })}
                 </motion.div>
-                <div className="pb-12 pt-6 ">
+                <div
+                    className=" lg:hidden flex p-12 pb-2 snap-x overflow-x-scroll w-screen homepage-exploreProducts-cards"
+                >
+                    {courses.map((course, index) => {
+                        return <ProductCard key={index} course={course} />;
+                    })}
+                </div>
+                <div className="pb-6 ">
                     <div className=" select-none flex justify-evenly items-center  my-4 ">
                         <LeftplayButton
                             func={leftCards}

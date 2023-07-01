@@ -22,10 +22,10 @@ const Homepage = () => {
       <HomepageHero />
       <div style={{ backgroundImage: "url('./images/homepage/main-bg.png')" }}>
         <HomepageJourney />
-        {/* <HomepageAbout />
+        <HomepageAbout />
         <HomepageConsultation />
         <HomepageExploreProducts />
-        <HomepageFooter /> */}
+        {/*  <HomepageFooter /> */}
 
       </div>
       {/* <motion.div

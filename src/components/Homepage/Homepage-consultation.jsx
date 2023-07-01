@@ -17,7 +17,7 @@ const HomepageConsultation = () => {
                 alt=""
             />
             <div
-                className="flex  justify-center px-4 lg:rounded-md  flex-col text-white max-w-lg  bg-[#F1F1F110] px-6 py-8  h-full "
+                className="flex  justify-center  lg:rounded-md  flex-col text-white max-w-lg  bg-[#F1F1F110] px-6 py-8  h-full "
                 style={{
                     boxShadow: "rgba(241, 241, 241,.7) 0px 0px 2px 0px",
                 }}
