@@ -5,14 +5,19 @@ import { useNavigate } from 'react-router-dom'
 const HomepageConsultation = () => {
     let navigate = useNavigate()
     return (
-        <div className="flex max-h-[320px]  justify-evenly items-scretch my-32 h-full ">
+        <div className="flex flex-col lg:flex-row lg:max-h-[320px] lg:my-32  justify-evenly items-scretch  h-full ">
+            <img
+                src="./images/homepage/mb-about-2.png"
+                className="lg:hidden"
+                alt=""
+            />
             <img
                 src="./images/homepage/about-2.png"
-                className="object-none"
+                className="hidden lg:block"
                 alt=""
             />
             <div
-                className="flex  justify-center px-4 rounded-md  flex-col text-white max-w-lg  bg-[#F1F1F110] px-6 py-8  h-full "
+                className="flex  justify-center px-4 lg:rounded-md  flex-col text-white max-w-lg  bg-[#F1F1F110] px-6 py-8  h-full "
                 style={{
                     boxShadow: "rgba(241, 241, 241,.7) 0px 0px 2px 0px",
                 }}
@@ -34,8 +39,9 @@ const HomepageConsultation = () => {
                         ultrices. Ullamcorper eu cursus a elit. Quam urna.
                     </div>
                 </div>
-                <CustomButton text="Get personal consultation" func={()=>{navigate("/")}} />
+                <CustomButton text="Get personal consultation" func={() => { navigate("/") }} />
             </div>
+
         </div>
     )
 }
