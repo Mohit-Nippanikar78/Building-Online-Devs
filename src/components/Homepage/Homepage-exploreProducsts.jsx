@@ -52,7 +52,7 @@ const HomepageExploreProducts = () => {
                     animate={{ x: coursesX }}
                     initial={{ x: 0 }}
                     ref={coursesRef}
-                    className="hidden lg:block flex p-12 snap-x  pb-6 w-screen homepage-exploreProducts-cards"
+                    className="hidden lg:flex p-12 snap-x  pb-6 w-screen homepage-exploreProducts-cards"
                 >
                     {courses.map((course, index) => {
                         return <ProductCard key={index} course={course} />;
