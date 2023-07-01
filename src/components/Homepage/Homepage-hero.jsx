@@ -22,7 +22,7 @@ const HomepageHero = () => {
         loop={true}
       ></video>
 
-      <div className="relative lg:w-1/2 lg:ml-40 lg:h-screen flex flex-col p-6 items-start  text-white max-w-lg ">
+      <div className="relative lg:w-1/2 lg:ml-40 lg:h-screen flex lg:justify-center flex-col p-6 items-start  text-white max-w-lg ">
         <div className=" text-3xl lg:text-5xl capitalize font-extrabold tracking-[2px]">
           <div className="lg:mb-4 mb-2">
             <span id="homepage-heading-gradient">building </span>

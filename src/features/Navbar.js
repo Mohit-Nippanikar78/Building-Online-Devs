@@ -3,6 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const NavbarSlice = createSlice({
   name: "navbar",
   initialState: {
+    navbarHeight: 100,
+    toggle:false,
+
     hoverSpan: {
       left: 0,
       width: 0,
@@ -32,7 +35,15 @@ const NavbarSlice = createSlice({
     setHoverSpan: (state, action) => {
       state.hoverSpan = action.payload;
     },
+    setNavbarHeight: (state, action) => {
+      state.navbarHeight = action.payload;
+    },
+    setToggle: (state, action) => {
+      state.toggle = action.payload;
+    }
+
   },
 });
-export const { setActiveId, setHoverSpan } = NavbarSlice.actions;
+export const { setActiveId, setHoverSpan, setNavbarHeight,setToggle } =
+  NavbarSlice.actions;
 export default NavbarSlice.reducer;

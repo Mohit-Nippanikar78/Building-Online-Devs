@@ -25,8 +25,7 @@ const Homepage = () => {
         <HomepageAbout />
         <HomepageConsultation />
         <HomepageExploreProducts />
-        {/*  <HomepageFooter /> */}
-
+        <HomepageFooter />
       </div>
       {/* <motion.div
         className="absolute top-0  flex justify-center items-end w-screen h-screen"
