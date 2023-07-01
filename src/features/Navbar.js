@@ -4,7 +4,7 @@ const NavbarSlice = createSlice({
   name: "navbar",
   initialState: {
     navbarHeight: 100,
-    toggle:false,
+    toggle: false,
 
     hoverSpan: {
       left: 0,
@@ -40,10 +40,9 @@ const NavbarSlice = createSlice({
     },
     setToggle: (state, action) => {
       state.toggle = action.payload;
-    }
-
+    },
   },
 });
-export const { setActiveId, setHoverSpan, setNavbarHeight,setToggle } =
+export const { setActiveId, setHoverSpan, setNavbarHeight, setToggle } =
   NavbarSlice.actions;
 export default NavbarSlice.reducer;
