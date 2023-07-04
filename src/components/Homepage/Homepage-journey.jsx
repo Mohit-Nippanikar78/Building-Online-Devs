@@ -10,13 +10,13 @@ const HomepageJourney = () => {
   let dispatch = useDispatch();
   const { data, activeId } = useSelector((state) => state.homecards);
   return (
-    <div className="relative flex flex-col lg:flex-row lg:w-2/3  text-white z-30  m-auto ">
+    <div className="relative flex flex-col md:flex-row  md:max lg:w-2/3  text-white z-30  m-auto ">
       <img
         src={`./images/homepage/card${activeId}-person.png`}
-        className="max-w-[500px]"
+        className="max-w-[500px] "
         alt=""
       />
-      <div className="bg-homepageCard px-12 py-6 lg:py-0  relative flex justify-center items-center flex-col">
+      <div className="bg-homepageCard px-12 py-6 lg:py-0 w-full lg:w-auto  relative flex justify-center items-center flex-col">
         <div className="absolute top-0 right-0 w-12 h-12 bg-lime flex justify-center items-center text-black font-semibold text-lg">
           0{activeId}
         </div>
