@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setActiveId, setCartDropdown, setGBPdropdown, setHoverSpan, setHovered, setNavbarHeight, setToggle } from "../../features/Navbar";
 import NavbarOptions from "./NavbarOptions";
 import { calcNavbarHoverSpan, useOutsideClick } from "../elements/hooks";
-
+import CartDropdownPage from "./CartDropdownPage.jsx";
 
 const Navbar = () => {
   let dispatch = useDispatch();
@@ -12,21 +12,15 @@ const Navbar = () => {
   const navbarRef = useRef();
   const [windowScrollY, setWindowScrollY] = useState(0);
   const { data, hoverSpan, activeId, toggle } = useSelector((state) => state.navbar);
-  useOutsideClick(navbarRef, () => { dispatch(setToggle(false)); } );
+  useOutsideClick(navbarRef, () => { dispatch(setToggle(false)); });
   const handleScroll = () => {
     setWindowScrollY(window.scrollY);
   };
-  // const handleClickOutside = event => {
-  // if (navbarRef.current && !navbarRef.current.contains(event.target)) dispatch(setToggle(false));
-  // };
+
   useEffect(() => {
-    // document.addEventListener("click", handleClickOutside, false);
     setTimeout(() => { dispatch(setNavbarHeight(navbarRef.current.getBoundingClientRect().height)) }, 500);
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      // document.removeEventListener("click", handleClickOutside, false);
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => { window.removeEventListener("scroll", handleScroll); };
   }, []);
 
   return (
@@ -42,6 +36,7 @@ const Navbar = () => {
       <img src="./images/logo.png" className="w-36" alt="" />
       {window.innerWidth < 1024 ? (<>
         <NavbarOptions />
+        {window.innerWidth < 1024 && <CartDropdownPage />}
         <button className={`lg:hidden rounded-md border-[#3c3c3c] p-1 my-auto border-2 border-solid ${toggle ? "bg-lime" : "bg-transparent"}`}
           onClick={() => { dispatch(setToggle(!toggle)); }}>
           {toggle ? (

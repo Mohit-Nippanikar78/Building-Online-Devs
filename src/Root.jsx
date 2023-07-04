@@ -21,7 +21,7 @@ const Overlays = () => {
   return (
     <>
       {data[4].dropdown.toggleDropdown && <GBP />}
-      {data[7].dropdown.toggleDropdown && <CartDropdown />}
+      {window.innerWidth >= 1024 && data[7].dropdown.toggleDropdown && <CartDropdown />}
     </>
   )
 }

@@ -121,6 +121,7 @@ const NavbarSlice = createSlice({
       //Toggling for mobile view
       state.toggle = action.payload;
       state.data[4].dropdown.toggleDropdown = false;
+      state.data[7].dropdown.toggleDropdown = false;
     },
   },
 });

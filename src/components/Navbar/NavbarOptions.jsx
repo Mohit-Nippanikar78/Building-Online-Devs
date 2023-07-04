@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveId, setGBPdropdown, setToggle } from "../../features/Navbar";
+import { setActiveId, setCartDropdown, setGBPdropdown, setToggle } from "../../features/Navbar";
 
 const NavbarOptions = () => {
     const { data, navbarHeight, toggle } = useSelector((state) => state.navbar);
@@ -31,6 +31,8 @@ const NavbarButton = ({ item }) => {
 
                         dispatch(setGBPdropdown({ toggleDropdown: !data[4].dropdown.toggleDropdown }))
                         dispatch(setGBPdropdown({ left: listRef.current.getBoundingClientRect().left + 30, top: listRef.current.getBoundingClientRect().top + 40 }))
+                    } else if (id == 8) {
+                        dispatch(setCartDropdown({ toggleDropdown: !data[7].dropdown.toggleDropdown }))
                     } else {
 
                         dispatch(setActiveId({ id }));
