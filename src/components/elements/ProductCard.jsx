@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ProductCard = ({ course }) => {
-    const { name, desc, price,id } = course;
+const ProductCard = ({ course, type }) => {
+    const { name, desc, price, id } = course;
     return (
-        <div className="snap-center flex mx-4 min-w-[15rem] flex-col text-center items-center w-64 rounded-md bg-white bg-opacity-70" style={{ boxShadow: "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px" }}>
+        <div className={`snap-center flex  flex-col text-center items-center  rounded-md bg-white ${type !== "productCatalogue" ? "bg-opacity-70 mx-4 w-60" : "w-64"}`} style={{ boxShadow: "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px" }}>
             <div className="text-sm font-bold text-[#212121]">Video</div>
             <img src="./images/course-1-thumbnail.png" className=' flex-1' alt="" />
             <div className="text-base py-4 text-left px-4">

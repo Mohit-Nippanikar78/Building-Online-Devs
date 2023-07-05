@@ -8,18 +8,30 @@ export default {
       },
       backgroundColor: {
         lime: "#D4F229",
-        homepageCard: "#3C3C3C",
-        homepageBg: "#031229",
+        neutral: "#3C3C3C",
         homepageCardArrowBg: "#9B9B9B",
-        navy:"#031229"
+        navy: "#031229",
       },
       colors: {
         lime: "#D4F229",
-        infoBlue :"#3285DA"
+        infoBlue: "#3285DA",
+        neutral: {
+          600:"#9B9B9B",
+          800: "#3C3C3C",
+          900: "#212121"
+
+        },
       },
       fontSize: {
         "15px": "15px",
       },
+      borderColor:{
+        neutral: "#3C3C3C",
+      },
+      fill:{
+        infoBlue: "#3285DA",
+
+      }
     },
     plugins: [],
   },
