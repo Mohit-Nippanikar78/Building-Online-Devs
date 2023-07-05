@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-const HomepageFooter = () => {
+const Footer = () => {
     return (
-        <div className="p-8">
+        < div className="p-8" >
             <div className="justify-between flex flex-col text-center lg:text-left md:flex-row  lg:mx-32 py-6   rounded-md text-white  bg-[#F1F1F110]   h-full ">
                 <div className="font-normal  py-2 text-sm justify-around flex flex-col lg:flex-row w-full ">
 
@@ -44,8 +44,8 @@ const HomepageFooter = () => {
                     <img src="./images/footer-banks.png" className="w-48 m-auto lg:ml-0" alt="" />
                 </div>
             </div>
-        </div>
-    );
-};
+        </div >
+    )
+}
 
-export default HomepageFooter;
+export default Footer

@@ -20,6 +20,7 @@ const NavbarSlice = createSlice({
         id: 1,
         name: "Products",
         active: false,
+        
       },
       {
         id: 2,

@@ -16,7 +16,7 @@ const HomepageJourney = () => {
         className="max-w-[500px] "
         alt=""
       />
-      <div className="bg-homepageCard px-12 py-6 lg:py-0 w-full lg:w-auto  relative flex justify-center items-center flex-col">
+      <div className="bg-neutral px-12 py-6 lg:py-0 w-full lg:w-auto  relative flex justify-center items-center flex-col">
         <div className="absolute top-0 right-0 w-12 h-12 bg-lime flex justify-center items-center text-black font-semibold text-lg">
           0{activeId}
         </div>
