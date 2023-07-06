@@ -5,17 +5,17 @@ import { useOutsideClick } from '../elements/hooks'
 const ProductCatalogueFilters = () => {
     let { filterOption, clearOptions } = useSelector(state => state.catalogue)
     return (
-        <div className="flex px-32 justify-between items-center w-full">
-            <div className="grid grid-cols-2 gap-4">
+        <div className="flex lg:px-32 flex-col lg:flex-row justify-between items-center w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4">
                 <FilterToggle />
-                {clearOptions ? <FilterCancel /> : <div></div>}
+                {window.innerWidth >= 1024 && (clearOptions ? <FilterCancel /> : <div></div>)}
                 {filterOption && (<>
                     <ProductCatalogueProductDropdown />
                     <ProductCatalogueContentDropdown />
                 </>
                 )}
-            </div> 
-            <SortBy/>
+            </div>
+            <SortBy />
         </div>
     )
 }
@@ -60,7 +60,7 @@ const ProductCatalogueProductDropdown = () => {
     const { productDropdown, productTypes } = useSelector(state => state.catalogue)
     return (
         <div class="relative inline-block text-left">
-            <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded bg-white px-3 py-2 text-sm  text-neutral-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            <button type="button" class={`${productDropdown ? "rounded-t" : "rounded"} lg:rounded inline-flex w-full justify-center gap-x-1.5 bg-white px-3 py-2 text-sm  text-neutral-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50`}
                 onClick={() => {
                     dispatch(setProductDropdown(!productDropdown))
                 }}>
@@ -69,7 +69,7 @@ const ProductCatalogueProductDropdown = () => {
                     <path d="M0 5L5 0L10 5H0Z" fill="#212121" />
                 </svg>
             </button>
-            <div class={`absolute ${!productDropdown && "hidden"} left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
+            <div class={`lg:absolute ${!productDropdown && "hidden"} left-0 z-10 lg:mt-2 lg:w-56 origin-top-right rounded-b-md lg:rounded-md  bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
                 <div class="py-1" role="none">
                     {productTypes.map(({ id, name, selected, count }) => {
                         if (selected) {
@@ -106,54 +106,55 @@ const ProductCatalogueProductDropdown = () => {
 const ProductCatalogueContentDropdown = () => {
     let dispatch = useDispatch()
     const { contentDropdown, contentTypes } = useSelector(state => state.catalogue)
-    return (<div class="relative inline-block text-left">
-        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded bg-white px-3 py-2 text-sm  text-neutral-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-            onClick={() => {
-                dispatch(setContentDropdown(!contentDropdown))
-            }}>
-            Content Type
-            <svg className={`ml-5 m-auto transition-transform duration-500 ${contentDropdown ? "rotate-180" : "rotate-0"}`} width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 5L5 0L10 5H0Z" fill="#212121" />
-            </svg>
-        </button>
-        <div class={`absolute ${!contentDropdown && "hidden"} left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
-            <div class="py-1" >
-                {contentTypes.map(({ id, name, selected, count }) => {
-                    if (selected) {
-                        return (
-                            <button class="text-neutral-900 px-4 py-2 text-sm flex w-full justify-between items-center">
-                                <div>
-                                    {name} <span className='text-neutral-600'>({count})</span>
-                                </div>
-                                <div className=' flex items-center '
-                                    onClick={() => {
-                                        dispatch(setContentSelected({ id, selected: !selected }))
-                                    }}
-                                >
-                                    <svg className='mr-2' width="2" height="17" viewBox="0 0 2 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <line x1="0.59082" y1="2.18557e-08" x2="0.59082" y2="17" stroke="#212121" />
-                                    </svg>
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path className='fill-infoBlue' d="M10.919 10.0625L7.22975 6.2056L10.919 2.34865C11.0821 2.17817 11.1737 1.94694 11.1737 1.70583C11.1737 1.46472 11.0821 1.23349 10.919 1.063C10.7559 0.892517 10.5348 0.796739 10.3041 0.796739C10.0735 0.796739 9.85233 0.892517 9.68925 1.06301L6 4.91995L2.31075 1.06301C2.14767 0.892517 1.9265 0.796739 1.69587 0.796739C1.46525 0.796739 1.24407 0.892517 1.081 1.063C0.917922 1.23349 0.826307 1.46472 0.826307 1.70583C0.826307 1.94694 0.917922 2.17817 1.081 2.34865L4.77025 6.2056L1.081 10.0625C0.917922 10.233 0.826307 10.4643 0.826307 10.7054C0.826307 10.9465 0.917922 11.1777 1.081 11.3482C1.24407 11.5187 1.46525 11.6145 1.69587 11.6145C1.92649 11.6145 2.14767 11.5187 2.31075 11.3482L6 7.49125L9.68925 11.3482C9.85233 11.5187 10.0735 11.6145 10.3041 11.6145C10.5348 11.6145 10.7559 11.5187 10.919 11.3482C11.0821 11.1777 11.1737 10.9465 11.1737 10.7054C11.1737 10.4643 11.0821 10.233 10.919 10.0625Z" fill="currentColor" />
-                                    </svg>
-                                </div>
-                            </button>)
-                    } else {
-                        return <button class="text-neutral-600 px-4 py-2 text-sm flex w-full items-center"
-                            onClick={() => {
-                                dispatch(setContentSelected({ id, selected: !selected }))
-                            }}>{name} <span className='text-neutral-600'>({count})</span></button>
-                    }
-                })}
+    return (
+        <div class="relative inline-block text-left">
+            <button type="button" class={`${contentDropdown ? "rounded-t" : "rounded"} lg:rounded inline-flex w-full justify-center gap-x-1.5 bg-white px-3 py-2 text-sm  text-neutral-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50`}
+                onClick={() => {
+                    dispatch(setContentDropdown(!contentDropdown))
+                }}>
+                Content Type
+                <svg className={`ml-5 m-auto transition-transform duration-500 ${contentDropdown ? "rotate-180" : "rotate-0"}`} width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 5L5 0L10 5H0Z" fill="#212121" />
+                </svg>
+            </button>
+            <div class={`lg:absolute ${!contentDropdown && "hidden"} left-0 z-10 lg:mt-2 lg:w-56 origin-top-right rounded-b-md lg:rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
+                <div class="py-1" >
+                    {contentTypes.map(({ id, name, selected, count }) => {
+                        if (selected) {
+                            return (
+                                <button class="text-neutral-900 px-4 py-2 text-sm flex w-full justify-between items-center">
+                                    <div>
+                                        {name} <span className='text-neutral-600'>({count})</span>
+                                    </div>
+                                    <div className=' flex items-center '
+                                        onClick={() => {
+                                            dispatch(setContentSelected({ id, selected: !selected }))
+                                        }}
+                                    >
+                                        <svg className='mr-2' width="2" height="17" viewBox="0 0 2 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="0.59082" y1="2.18557e-08" x2="0.59082" y2="17" stroke="#212121" />
+                                        </svg>
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path className='fill-infoBlue' d="M10.919 10.0625L7.22975 6.2056L10.919 2.34865C11.0821 2.17817 11.1737 1.94694 11.1737 1.70583C11.1737 1.46472 11.0821 1.23349 10.919 1.063C10.7559 0.892517 10.5348 0.796739 10.3041 0.796739C10.0735 0.796739 9.85233 0.892517 9.68925 1.06301L6 4.91995L2.31075 1.06301C2.14767 0.892517 1.9265 0.796739 1.69587 0.796739C1.46525 0.796739 1.24407 0.892517 1.081 1.063C0.917922 1.23349 0.826307 1.46472 0.826307 1.70583C0.826307 1.94694 0.917922 2.17817 1.081 2.34865L4.77025 6.2056L1.081 10.0625C0.917922 10.233 0.826307 10.4643 0.826307 10.7054C0.826307 10.9465 0.917922 11.1777 1.081 11.3482C1.24407 11.5187 1.46525 11.6145 1.69587 11.6145C1.92649 11.6145 2.14767 11.5187 2.31075 11.3482L6 7.49125L9.68925 11.3482C9.85233 11.5187 10.0735 11.6145 10.3041 11.6145C10.5348 11.6145 10.7559 11.5187 10.919 11.3482C11.0821 11.1777 11.1737 10.9465 11.1737 10.7054C11.1737 10.4643 11.0821 10.233 10.919 10.0625Z" fill="currentColor" />
+                                        </svg>
+                                    </div>
+                                </button>)
+                        } else {
+                            return <button class="text-neutral-600 px-4 py-2 text-sm flex w-full items-center"
+                                onClick={() => {
+                                    dispatch(setContentSelected({ id, selected: !selected }))
+                                }}>{name} <span className='text-neutral-600'>({count})</span></button>
+                        }
+                    })}
 
+                </div>
             </div>
-        </div>
-    </div>)
+        </div>)
 }
 const SortBy = () => {
     const [toggle, setToggle] = useState(false)
-    return (<div class="relative inline-block text-left">
-        <button type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded bg-white px-3 py-2 text-sm  text-neutral-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+    return (<div class="relative mt-2 lg:pt-2  text-left">
+        <button type="button" class={`${toggle ? "rounded-t" : "rounded"} inline-flex w-full justify-center gap-x-1.5 bg-white px-3 py-2 text-sm  text-neutral-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50`}
             onClick={() => {
                 setToggle(!toggle)
             }}>
@@ -162,10 +163,10 @@ const SortBy = () => {
                 <path d="M0 5L5 0L10 5H0Z" fill="#212121" />
             </svg>
         </button>
-        <div class={`absolute ${!toggle && "hidden"} right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
+        <div class={`${!toggle && "hidden"}  right-0 z-10 lg:mt-2 lg:w-56 origin-top-right rounded-b-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
             <div class="py-1" role="none">
-                {["Date", "createdAt", "UpdatedAt"].map((item) => {
-                    return <button class="text-neutral-600 px-4 py-2 text-sm flex w-full items-center hover:text-neutral-900">{item}</button>
+                {["Date", "createdAt", "UpdatedAt"].map((item, index) => {
+                    return <button key={index} class="text-neutral-600 px-4 py-2 text-sm flex w-full items-center hover:text-neutral-900">{item}</button>
                 })}
             </div>
         </div>
