@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const ProductCatalogueAnchor = () => {
     return (
         <div className="lg:mx-32 bg-white flex items-center">
-            <div className="grid grid-cols-1 w-full  lg:grid-cols-2 place-items-center lg:px-12 py-20 bg-cover" style={{ backgroundImage: "url('./images/productCatalogue/anchor.png')" }}>
+            <div className="grid grid-cols-1 w-full  lg:grid-cols-2 place-items-center lg:px-12 py-20 bg-cover" style={{ backgroundImage: "url('/images/productCatalogue/anchor.png')" }}>
                 <div className="w-80 lg:w-auto m-auto flex flex-col justify-between place-self-start lg:ml-12">
                     <div className="font-extrabold text-3xl text-left ">
                         Not sure what <br />

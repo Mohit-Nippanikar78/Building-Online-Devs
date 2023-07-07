@@ -14,7 +14,7 @@ const CartDropdownPage = () => {
             </div>
             {["", "", "", "", ""].map((item, index) => {
                 return (<div className="flex flex-col p-2 items-center bg-white m-6 rounded-md   text-black ">
-                    <img src="./images/course-1-thumbnail.png" className='w-16 h-16' alt="" />
+                    <img src="/images/course-1-thumbnail.png" className='w-16 h-16' alt="" />
                     <div className="flex py-4 gap-4 px-4">
                         <div>
                             <p className="text-sm">Product</p>

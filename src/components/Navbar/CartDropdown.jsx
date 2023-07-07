@@ -8,7 +8,7 @@ const CartDropdown = () => {
             style={{ right: (data[7].dropdown.right), top: data[7].dropdown.top + 40 }}
         >
             <div className="flex items-center bg-white  text-black ">
-                <img src="./images/course-1-thumbnail.png" className='w-16 h-16' alt="" />
+                <img src="/images/course-1-thumbnail.png" className='w-16 h-16' alt="" />
                 <div className="flex gap-4 px-4">
                     <div>
                         <p className="text-sm">Product</p>
@@ -29,7 +29,7 @@ const CartDropdown = () => {
                 </div>
             </div>
             <div className="flex items-center bg-white  text-black ">
-                <img src="./images/course-1-thumbnail.png" className='w-16 h-16' alt="" />
+                <img src="/images/course-1-thumbnail.png" className='w-16 h-16' alt="" />
                 <div className="flex gap-4 px-4">
                     <div>
                         <p className="text-sm">Product</p>
@@ -50,7 +50,7 @@ const CartDropdown = () => {
                 </div>
             </div>
             <div className="flex items-center bg-white  text-black ">
-                <img src="./images/course-1-thumbnail.png" className='w-16 h-16' alt="" />
+                <img src="/images/course-1-thumbnail.png" className='w-16 h-16' alt="" />
                 <div className="flex gap-4 px-4">
                     <div>
                         <p className="text-sm">Product</p>

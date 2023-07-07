@@ -9,14 +9,14 @@ const HomepageHero = () => {
     <div className="h-full relative">
       <video
         className="hidden md:block absolute top-0 right-0 "
-        src="./images/homepage/hero-desktop.mp4"
+        src="/images/homepage/hero-desktop.mp4"
         autoPlay={true}
         muted={true}
         loop={true}
       ></video>
       <video
         className="md:hidden w-full"
-        src="./images/homepage/hero-mobile.mp4"
+        src="/images/homepage/hero-mobile.mp4"
         autoPlay={true}
         muted={true}
         loop={true}

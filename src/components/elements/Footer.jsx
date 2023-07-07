@@ -37,11 +37,11 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="">
-                    <img src="./images/logo.png" className="w-32 m-auto lg:ml-0 " alt="" />
+                    <img src="/images/logo.png" className="w-32 m-auto lg:ml-0 " alt="" />
                     <div className="py-6 flex flex-col text-sm font-light   ">
                         Copyright © 2023 Building Online Devs. All Rights Reserved.
                     </div>
-                    <img src="./images/footer-banks.png" className="w-48 m-auto lg:ml-0" alt="" />
+                    <img src="/images/footer-banks.png" className="w-48 m-auto lg:ml-0" alt="" />
                 </div>
             </div>
         </div >

@@ -35,7 +35,7 @@ const HomepageExploreProducts = () => {
             <div
                 className="flex items-center flex-col justify-center "
                 style={{
-                    background: "url('./images/homepage/explore-products-bg.png')",
+                    background: "url('/images/homepage/explore-products-bg.png')",
                 }}
             >
                 <div className="max-w-lg mt-12 text-center font-semiboldD relative z-10  ">

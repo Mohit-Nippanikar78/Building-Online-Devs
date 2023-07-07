@@ -7,12 +7,12 @@ const HomepageConsultation = () => {
     return (
         <div className="flex flex-col md:w-full w-auto md:flex-row lg:max-h-[320px] lg:my-32  justify-evenly items-scretch  h-full ">
             <img
-                src="./images/homepage/mb-about-2.png"
+                src="/images/homepage/mb-about-2.png"
                 className="lg:hidden"
                 alt=""
             />
             <img
-                src="./images/homepage/about-2.png"
+                src="/images/homepage/about-2.png"
                 className="hidden lg:block"
                 alt=""
             />

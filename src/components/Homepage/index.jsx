@@ -18,7 +18,7 @@ const Homepage = () => {
   return (
     <div className="bg-navy relative overflow-x-hidden mt-16 lg:mt-0">
       <HomepageHero />
-      <div style={{ backgroundImage: "url('./images/main-bg.png')" }}>
+      <div style={{ backgroundImage: "url('/images/main-bg.png')" }}>
         <HomepageJourney />
         <HomepageAbout />
         <HomepageConsultation />
@@ -36,7 +36,7 @@ const Homepage = () => {
         ref={ref}
       >
         <img
-          src="./images/scrolldownmouse.png"
+          src="/images/scrolldownmouse.png"
           className="animate-bounce w-max h-max mb-4"
           alt=""
         />

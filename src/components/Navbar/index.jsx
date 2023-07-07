@@ -33,7 +33,7 @@ const Navbar = () => {
       }}
       ref={navbarRef}
     >
-      <img src="./images/logo.png" className="w-36" alt="" />
+      <img src="/images/logo.png" className="w-36" alt="" />
       {window.innerWidth < 1024 ? (<>
         <NavbarOptions />
         {window.innerWidth < 1024 && <CartDropdownPage />}
@@ -108,7 +108,7 @@ const NavbarButtons = ({ item, parentRef }) => {
         {!item?.last && (
           <img
             className="absolute top-1.5 -right-1"
-            src="./images/dot.png"
+            src="/images/dot.png"
             alt=""
           />
         )}
@@ -154,7 +154,7 @@ const NavbarSimpleButton = ({ item, parentRef }) => {
       {!item?.last && (
         <img
           className="absolute top-1.5 -right-1"
-          src="./images/dot.png"
+          src="/images/dot.png"
           alt=""
         />
       )}
@@ -208,7 +208,7 @@ const NavbarDropdownButton = ({ item, parentRef }) => {
       {!item?.last && (
         <img
           className="absolute top-1.5 -right-1"
-          src="./images/dot.png"
+          src="/images/dot.png"
           alt=""
         />
       )}

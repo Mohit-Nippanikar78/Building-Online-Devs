@@ -7,7 +7,7 @@ const HomepageAbout = () => {
     <>
       <div className="flex flex-col md:w-full w-auto md:py-16 lg:py-0 md:flex-row lg:max-h-[320px] lg:my-32  justify-evenly items-scretch  h-full ">
         <img
-          src="./images/homepage/mb-about-1.png"
+          src="/images/homepage/mb-about-1.png"
           className="lg:hidden"
           alt=""
         />
@@ -38,7 +38,7 @@ const HomepageAbout = () => {
         </div>
 
         <img
-          src="./images/homepage/about-1.png"
+          src="/images/homepage/about-1.png"
           className="lg:block hidden"
           alt=""
         />

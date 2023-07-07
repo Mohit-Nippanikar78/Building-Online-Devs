@@ -12,7 +12,7 @@ const HomepageJourney = () => {
   return (
     <div className="relative flex flex-col md:flex-row  md:max lg:w-2/3  text-white z-30  m-auto ">
       <img
-        src={`./images/homepage/card${activeId}-person.png`}
+        src={`/images/homepage/card${activeId}-person.png`}
         className="max-w-[500px] "
         alt=""
       />
@@ -22,7 +22,7 @@ const HomepageJourney = () => {
         </div>
         <img
           className="w-24"
-          src={`./images/homepage/card${activeId}-icon.png`}
+          src={`/images/homepage/card${activeId}-icon.png`}
           alt=""
         />
         <div className="font-semibold lg:text-2xl text-xl text-center uppercase">

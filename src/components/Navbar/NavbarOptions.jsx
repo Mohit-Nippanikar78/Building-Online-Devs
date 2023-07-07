@@ -50,7 +50,7 @@ const NavbarButton = ({ item }) => {
                 {!item?.last && (
                     <img
                         className=" z-50 absolute right-[46%] -bottom-1"
-                        src="./images/dot.png"
+                        src="/images/dot.png"
                         alt=""
                     />
                 )}
