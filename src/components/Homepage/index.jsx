@@ -3,9 +3,8 @@ import HomepageHero from "./Homepage-hero";
 import HomepageJourney from "./Homepage-journey";
 import HomepageAbout from "./Homepage-about";
 import HomepageConsultation from "./Homepage-consultation";
-import HomepageExploreProducts from "./Homepage-exploreProducsts";
 import { useInView } from "react-intersection-observer";
-import { Footer } from "../elements";
+import { ExploreProducts, Footer } from "../elements";
 const Homepage = () => {
   const [ref, inView] = useInView({
     threshold: 1,
@@ -22,7 +21,7 @@ const Homepage = () => {
         <HomepageJourney />
         <HomepageAbout />
         <HomepageConsultation />
-        <HomepageExploreProducts />
+        <ExploreProducts type="homepage" dark={true} />
         <Footer />
       </div>
       {/* <motion.div

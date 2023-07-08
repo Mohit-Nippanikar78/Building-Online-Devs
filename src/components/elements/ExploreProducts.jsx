@@ -1,12 +1,9 @@
 import React, { useRef, useState } from "react";
-import CustomButton from "../elements/CustomButton";
 import { useSelector } from "react-redux";
-import ProductCard from "../elements/ProductCard";
 import { motion } from "framer-motion";
-import LeftplayButton from "../elements/LeftplayButton";
-import RightplayButton from "../elements/RightplayButton";
+import { CustomButton, LeftplayButton, RightplayButton, ProductCard } from "."
 
-const HomepageExploreProducts = () => {
+const ExploreProducts = ({ type, dark }) => {
     const [coursesX, setCoursesX] = useState(0);
     const { courses } = useSelector((state) => state.courses);
     let coursesRef = useRef();
@@ -31,14 +28,14 @@ const HomepageExploreProducts = () => {
         }
     };
     return (
-        <div className="bg-white">
+        <div className={`${type=="homepage"&&"bg-white"}`}>
             <div
                 className="flex items-center flex-col justify-center "
                 style={{
-                    background: "url('/images/homepage/explore-products-bg.png')",
+                    background: type !== "productPage" && "url('/images/homepage/explore-products-bg.png')",
                 }}
             >
-                <div className="max-w-lg mt-12 text-center font-semiboldD relative z-10  ">
+                <div className="max-w-lg mt-12 text-center font-semibold relative z-10  ">
                     <div className="capitalize text-2xl font-bold">
                         explore some of our best resources
                     </div>
@@ -55,26 +52,26 @@ const HomepageExploreProducts = () => {
                     className="hidden lg:flex p-12 snap-x  pb-6 w-screen homepage-exploreProducts-cards"
                 >
                     {courses.map((course, index) => {
-                        return <ProductCard key={index} course={course} />;
+                        return <ProductCard key={index} course={course} type={type} />;
                     })}
                 </motion.div>
                 <div
                     className=" lg:hidden flex p-12 pb-2 snap-x overflow-x-scroll w-screen homepage-exploreProducts-cards"
                 >
                     {courses.map((course, index) => {
-                        return <ProductCard key={index} course={course} />;
+                        return <ProductCard key={index} course={course} type={type} />;
                     })}
                 </div>
                 <div className="pb-6 ">
                     <div className=" select-none flex justify-evenly items-center  my-4 ">
                         <LeftplayButton
                             func={leftCards}
-                            dark={true}
+                            dark={dark}
                         />
-                        <CustomButton text="view all " dark={true} />
+                        <CustomButton text="view all " dark={dark} />
                         <RightplayButton
                             func={rightCards}
-                            dark={true}
+                            dark={dark}
                         />
                     </div>
                 </div>
@@ -83,4 +80,4 @@ const HomepageExploreProducts = () => {
     );
 };
 
-export default HomepageExploreProducts;
+export default ExploreProducts;
