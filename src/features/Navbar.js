@@ -20,7 +20,6 @@ const NavbarSlice = createSlice({
         id: 1,
         name: "Products",
         active: false,
-        
       },
       {
         id: 2,
@@ -80,21 +79,22 @@ const NavbarSlice = createSlice({
       const CartDropdownToggle = state.data[7].dropdown.toggleDropdown;
       const { id } = action.payload;
       state.activeId = action.payload;
+      console.log(action.payload);
       if (GBPdropdownToggle && id == 5) {
         state.activeId.id = null;
+        console.log(1);
+        console.log(1);
       }
       if (id !== 5) {
-        setGBPdropdown({
-          toggleDropdown: false,
-        });
+        state.data[4].dropdown.toggleDropdown = false;
+        console.log(2);
       }
+      console.log(3);
       if (CartDropdownToggle && id == 8) {
         state.activeId.id = null;
       }
       if (id !== 8) {
-        setCartDropdown({
-          toggleDropdown: false,
-        });
+        state.data[7].dropdown.toggleDropdown = false;
       }
     },
     setHovered: (state, action) => {
