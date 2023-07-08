@@ -7,13 +7,14 @@ import {
 
 import "./App.css";
 import Root from "./Root";
-import { Homepage, ProductCatalogue } from "./components";
+import { Homepage, ProductCatalogue, ProductPage } from "./components";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/products" element={<ProductCatalogue />} />
+        <Route index element={<Homepage />} />
+        <Route path="/products"  element={<ProductCatalogue />} />
+        <Route path="/product/:id" element={<ProductPage />} />
       </Route>
     )
   );

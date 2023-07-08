@@ -1,15 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const CustomButton = ({ text, func, dark ,styles }) => {
+const CustomButton = ({ text, func, dark, styles, type }) => {
   let navigate = useNavigate();
   return (
     <button
-      className={`${dark ? "border-[#212121] text-[#212121]" : "border-[#FFFFFF80] text-white"} capitalize text-sm w-max  transition-all duration-700 hover:bg-lime  hover:text-black hover:shadow-lg hover:border-lime px-3 py-1.5 rounded-md   border-2 `}
+      className={`${dark ? "border-[#212121] text-[#212121]" : "border-[#FFFFFF80] text-white"} ${type == "AddToCart" && "flex items-center"} capitalize text-sm w-max  transition-all duration-700 hover:bg-lime  hover:text-black hover:shadow-lg hover:border-lime px-3 py-1.5 rounded-md   border-2 `}
       onClick={func}
       styles={styles}
     >
       {text}
+      {type == "AddToCart" && (
+        <svg className="ml-2" width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.7422 1.63515L1.63286 3.04955C1.41314 3.3297 1.30328 3.46977 1.30583 3.58702C1.30805 3.68905 1.35808 3.78473 1.44211 3.84765C1.53867 3.91995 1.72177 3.91995 2.08797 3.91995H12.6124C12.9786 3.91995 13.1617 3.91995 13.2583 3.84765C13.3423 3.78473 13.3923 3.68905 13.3946 3.58702C13.3971 3.46977 13.2873 3.3297 13.0675 3.04955L11.9582 1.63515M2.7422 1.63515C2.86735 1.47558 2.92993 1.39579 3.00924 1.33825C3.07948 1.28728 3.15902 1.24925 3.2438 1.22609C3.33953 1.19995 3.44383 1.19995 3.65242 1.19995H11.048C11.2566 1.19995 11.3609 1.19995 11.4566 1.22609C11.5414 1.24925 11.6209 1.28728 11.6912 1.33825C11.7705 1.39579 11.833 1.47558 11.9582 1.63515M2.7422 1.63515L1.40531 3.33968C1.23645 3.55498 1.15201 3.66263 1.09206 3.78118C1.03886 3.88637 1.00006 3.99768 0.976615 4.11236C0.950195 4.2416 0.950195 4.37616 0.950195 4.64528L0.950195 12.624C0.950195 13.3856 0.950195 13.7665 1.10521 14.0574C1.24156 14.3133 1.45913 14.5213 1.72674 14.6517C2.03097 14.7999 2.42923 14.7999 3.22575 14.7999L11.4746 14.8C12.2712 14.8 12.6694 14.8 12.9736 14.6517C13.2413 14.5213 13.4588 14.3133 13.5952 14.0574C13.7502 13.7665 13.7502 13.3856 13.7502 12.624V4.64528C13.7502 4.37616 13.7502 4.2416 13.7238 4.11236C13.7003 3.99769 13.6615 3.88637 13.6083 3.78118C13.5484 3.66263 13.4639 3.55498 13.2951 3.33968L11.9582 1.63515M10.1946 6.63995C10.1946 7.36134 9.89496 8.05318 9.36152 8.56328C8.82808 9.07338 8.10459 9.35995 7.3502 9.35995C6.5958 9.35995 5.87231 9.07338 5.33887 8.56328C4.80543 8.05318 4.50575 7.36134 4.50575 6.63995" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      )}
     </button>
   );
 };
