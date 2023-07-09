@@ -1,10 +1,9 @@
 import React from "react";
 import HomepageHero from "./Homepage-hero";
-import HomepageJourney from "./Homepage-journey";
 import HomepageAbout from "./Homepage-about";
 import HomepageConsultation from "./Homepage-consultation";
 import { useInView } from "react-intersection-observer";
-import { ExploreProducts, Footer } from "../elements";
+import { ExploreProducts, Footer, Journey } from "../elements";
 const Homepage = () => {
   const [ref, inView] = useInView({
     threshold: 1,
@@ -18,7 +17,7 @@ const Homepage = () => {
     <div className="bg-navy relative overflow-x-hidden mt-16 lg:mt-0">
       <HomepageHero />
       <div style={{ backgroundImage: "url('/images/main-bg.png')" }}>
-        <HomepageJourney />
+        <Journey />
         <HomepageAbout />
         <HomepageConsultation />
         <ExploreProducts type="homepage" dark={true} />

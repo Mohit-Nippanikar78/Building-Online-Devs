@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { nextCard, prevCard } from "../../features/Homecards";
 import { useNavigate } from "react-router-dom";
-import CustomButton from "../elements/CustomButton";
-import RightplayButton from "../elements/RightplayButton";
-import LeftplayButton from "../elements/LeftplayButton";
+import CustomButton from "./CustomButton";
+import RightplayButton from "./RightplayButton";
+import LeftplayButton from "./LeftplayButton";
 
 const HomepageJourney = () => {
   let dispatch = useDispatch();
   const { data, activeId } = useSelector((state) => state.homecards);
   return (
-    <div className="relative flex flex-col md:flex-row  md:max lg:w-2/3  text-white z-30  m-auto ">
+    <div className="relative lg:-mt-8 flex flex-col md:flex-row  md:max lg:w-2/3  text-white z-30  m-auto ">
       <img
         src={`/images/homepage/card${activeId}-person.png`}
         className="max-w-[500px] "
