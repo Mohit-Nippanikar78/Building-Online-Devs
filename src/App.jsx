@@ -7,7 +7,7 @@ import {
 
 import "./App.css";
 import Root from "./Root";
-import { About, Homepage, ProductCatalogue, ProductPage } from "./components";
+import { About, Consultation, Homepage, ProductCatalogue, ProductPage } from "./components";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -16,6 +16,7 @@ function App() {
         <Route path="/products" element={<ProductCatalogue />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/consultation" element={<Consultation />} />
       </Route>
     )
   );

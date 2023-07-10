@@ -2,21 +2,24 @@ import React, { useEffect, useState } from 'react'
 
 const Heropage = ({ type }) => {
     const [btnHover, setBtnHover] = useState(false);
-    const [data, setData] = useState({ backgroundImage: "" })
+    const [data, setData] = useState({ backgroundImageLg: "", backgroundImageSm: "", title: "", btntxt: "" })
+    const [mohit, setmohit] = useState(<div>hi</div>)
     useEffect(() => {
         if (type == "About") {
-            setData({ backgroundImage: "url('/images/about/hero-desktop-bg.png')" });
+            setData({ backgroundImageLg: "lg:bg-[url('/images/elements/lg-about-hero.png')]", backgroundImageSm: "/images/elements/sm-about-hero.png", title: <>supplying you the web dev <span id="homepage-heading-gradient"> build </span>Blocks</>, btntxt: "start your journey today" });
+        } else if (type == "Consultation") {
+            setData({ backgroundImageLg: "lg:bg-[url('/images/elements/lg-consultation-hero.png')]", backgroundImageSm: "/images/elements/sm-consultation-hero.png", title: <>need   <span id="homepage-heading-gradient"> Personalised </span>consultation?</>, btntxt: "contact our team today" });
         }
     }, [])
     return (
-        <div className="relative bg-contain   bg-no-repeat  mt-20 lg:mt-0" style={{ backgroundImage: data.backgroundImage }} >
+        <div className={`relative bg-cover   bg-no-repeat  mt-20 lg:mt-0 ${data.backgroundImageLg}`}  >
             <div className="lg:hidden">
-                <img src="/images/about/top-bg.png" alt="" />
+                <img src={data.backgroundImageSm} alt="" />
             </div>
             <div className="relative md:min-h-[600px]  lg:w-1/2 lg:ml-40  flex md:justify-center flex-col p-6 items-start  text-white max-w-lg ">
                 <div className="text-3xl lg:text-4xl capitalize font-bold tracking-[1.5px] ">
                     <div className="lg:mb-4 mb-2">
-                        supplying you the web dev <span id="homepage-heading-gradient"> build </span>Blocks
+                        {data.title}
                     </div>
                 </div>
                 <div className="font-xs   tracking-[0.001rem] text-xs lg:my-4 my-8 max-w-md">
@@ -35,10 +38,10 @@ const Heropage = ({ type }) => {
                     }}
                 >
                     <div
-                        className={`relative z-20 px-4 py-2 flex items-center  ${btnHover ? "text-black" : "text-lime"
+                        className={`relative capitalize z-20 px-4 py-2 flex items-center  ${btnHover ? "text-black" : "text-lime"
                             }`}
                     >
-                        Start Your Journey Today{" "}
+                        {data.btntxt}
                         <svg
                             width="29"
                             height="17"

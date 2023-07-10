@@ -1,8 +1,6 @@
 import React from 'react'
-import { ExploreProducts, Footer, FooterAnchor, Heropage, Journey } from '../elements'
+import { ExploreProducts, Footer, FooterAnchor, Heropage, Journey, Whyus } from '../elements'
 import AboutAboutus from './About-aboutus'
-import AboutWhyus from './About-whyus'
-
 const About = () => {
     return (<div className='bg-navy overflow-x-hidden' >
         <Heropage type="About" />
@@ -10,7 +8,7 @@ const About = () => {
             <Journey />
             <AboutAboutus />
             <ExploreProducts dark={true} type="homepage" />
-            <AboutWhyus />
+            <Whyus />
             <FooterAnchor />
             <Footer />
         </div>

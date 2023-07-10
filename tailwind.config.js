@@ -34,6 +34,13 @@ export default {
           800: "#3C3C3C",
         },
       },
+      outline: {
+          lime: "#D4F229",
+        neutral: {
+          800: "#3C3C3C",
+        },
+      },
+
       fill: {
         infoBlue: "#3285DA",
       },

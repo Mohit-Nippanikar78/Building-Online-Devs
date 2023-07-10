@@ -5,7 +5,7 @@ const CustomButton = ({ text, func, dark, styles, type }) => {
   let navigate = useNavigate();
   return (
     <button
-      className={`${dark ? "border-[#212121] text-[#212121]" : "border-[#FFFFFF80] text-white"} ${type == "AddToCart" && "flex items-center"} capitalize text-sm w-max  transition-all duration-700 hover:bg-lime  hover:text-black hover:shadow-lg hover:border-lime px-3 py-1.5 rounded-md   border-2 `}
+      className={`${dark ? "border-[#212121] text-[#212121]" : "border-[#FFFFFF80] text-white"} ${type == "AddToCart" && "flex items-center"} ${type == "consultation" ? "w-full":" w-max"} capitalize text-sm  transition-all duration-700 hover:bg-lime  hover:text-black hover:shadow-lg hover:border-lime px-3 py-1.5 rounded-md   border-2 `}
       onClick={func}
       styles={styles}
     >
