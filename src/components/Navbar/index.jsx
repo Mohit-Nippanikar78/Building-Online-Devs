@@ -5,6 +5,7 @@ import { setActiveId, setCartDropdown, setGBPdropdown, setHoverSpan, setHovered,
 import NavbarOptions from "./NavbarOptions";
 import { calcNavbarHoverSpan, useOutsideClick } from "../elements/hooks";
 import CartDropdownPage from "./CartDropdownPage.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   let dispatch = useDispatch();
@@ -116,9 +117,10 @@ const NavbarButtons = ({ item, parentRef }) => {
 };
 const NavbarSimpleButton = ({ item, parentRef }) => {
   let dispatch = useDispatch();
+  let navigate = useNavigate()
   const listRef = useRef();
   const { activeId } = useSelector((state) => state.navbar);
-  let { name, id, data } = item;
+  let { name, id, link } = item;
   const [mohit, setMohit] = useState()
   useEffect(() => {
     setTimeout(() => {
@@ -137,6 +139,7 @@ const NavbarSimpleButton = ({ item, parentRef }) => {
         dispatch(
           setActiveId({ id })
         );
+        navigate(link)
       }}
       className={`hidden relative px-4 lg:flex items-center overflow-visible  cursor-pointer hover:text-[#3c3c3c] ${item.id == activeId.id && "text-[#3c3c3c]"
         }`}
@@ -171,9 +174,7 @@ const NavbarDropdownButton = ({ item, parentRef }) => {
   return (
     <li
       ref={listRef}
-      onMouseOver={() => {
-        dispatch(setHoverSpan({ id }));
-      }}
+      onMouseOver={() => {dispatch(setHoverSpan({ id }));}}
       onMouseOut={() => { console.log(activeId.id, id); activeId.id !== id && setHoverSpan({ id: 0 }) }}
       onClick={() => {
         id == 5 && dispatch(setGBPdropdown({ toggleDropdown: !item.dropdown.toggleDropdown }))

@@ -19,24 +19,28 @@ const NavbarSlice = createSlice({
       {
         id: 1,
         name: "Products",
+        link: "/products",
         left: 0,
         width: 0,
       },
       {
         id: 2,
         name: "About Us",
+        link: "/about",
         left: 0,
         width: 0,
       },
       {
         id: 3,
         name: "Consultations",
+        link: "/consultations",
         left: 0,
         width: 0,
       },
       {
         id: 4,
         name: "Support",
+        link: "/support",
         left: 0,
         width: 0,
       },
@@ -53,12 +57,14 @@ const NavbarSlice = createSlice({
       {
         id: 6,
         name: "Login",
+        link: "/login",
         left: 0,
         width: 0,
       },
       {
         id: 7,
         name: "Register",
+        link: "/register",
         left: 0,
         width: 0,
       },

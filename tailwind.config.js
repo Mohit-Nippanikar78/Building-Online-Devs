@@ -10,7 +10,8 @@ export default {
         lime: "#D4F229",
         neutral: {
           400:"#F4F4F4",
-          800: "#3C3C3C"
+          800: "#3C3C3C",
+          900:"#212121"
         },
         
         homepageCardArrowBg: "#9B9B9B",

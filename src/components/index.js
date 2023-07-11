@@ -4,3 +4,4 @@ export { default as ProductCatalogue } from "./ProductCatalogue";
 export { default as ProductPage } from "./ProductPage";
 export { default as About } from "./About";
 export { default as Consultation } from "./Consultation";
+export { default as Support } from "./Support";
