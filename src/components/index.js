@@ -9,3 +9,4 @@ export { default as Login } from "./Login";
 export { LoginPage } from "./Login";
 export { default as ForgotPassword } from "./Login/ForgotPassword";
 export { default as ResetPassword } from "./Login/ResetPassword";
+export { default as Register } from "./Register";

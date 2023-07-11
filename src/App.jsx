@@ -7,7 +7,7 @@ import {
 
 import "./App.css";
 import Root from "./Root";
-import { About, Consultation, Homepage, ProductCatalogue, ProductPage, Support, Login, ForgotPassword, ResetPassword, LoginPage } from "./components";
+import { About, Consultation, Homepage, ProductCatalogue, ProductPage, Support, Login, ForgotPassword, ResetPassword, LoginPage, Register } from "./components";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -23,6 +23,7 @@ function App() {
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="reset-password" element={<ResetPassword />} />
         </Route>
+        <Route path="/register" element={<Register />} />
       </Route>
     )
   );
