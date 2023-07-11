@@ -18,6 +18,8 @@ const ResetPassword = () => {
                         <svg className='absolute right-3 bottom-1/3 cursor-pointer' width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg"
                             onMouseUp={() => setShow1(false)}
                             onMouseDown={() => setShow1(true)}
+                            onTouchStart={() => setShow1(true)}
+                            onTouchEnd={() => setShow1(false)}
                         >
                             <ellipse cx="10.6295" cy="10.9289" rx="3.7037" ry="3.57143" fill="#212121" />
                             <path d="M1 11.6429C1.74074 8.78571 5.88889 4.5 10.6296 4.5C16.5556 4.5 20.2593 9.5 21 11.6429" stroke="#212121" />
@@ -28,6 +30,8 @@ const ResetPassword = () => {
                         <svg className='absolute right-3 bottom-1/3 cursor-pointer' width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg"
                             onMouseUp={() => setShow2(false)}
                             onMouseDown={() => setShow2(true)}
+                            onTouchStart={() => setShow2(true)}
+                            onTouchEnd={() => setShow2(false)}
                         >
                             <ellipse cx="10.6295" cy="10.9289" rx="3.7037" ry="3.57143" fill="#212121" />
                             <path d="M1 11.6429C1.74074 8.78571 5.88889 4.5 10.6296 4.5C16.5556 4.5 20.2593 9.5 21 11.6429" stroke="#212121" />
