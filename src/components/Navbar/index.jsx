@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveId, setCartDropdown, setGBPdropdown, setHoverSpan, setHovered, setNavbarHeight, setToggle } from "../../features/Navbar";
+import { setActiveId, setCartDropdown, setGBPdropdown, setHoverSpan, setHovered, setNavbarHeight, setOrientation, setToggle } from "../../features/Navbar";
 import NavbarOptions from "./NavbarOptions";
 import { calcNavbarHoverSpan, useOutsideClick } from "../elements/hooks";
 import CartDropdownPage from "./CartDropdownPage.jsx";
@@ -16,7 +16,6 @@ const Navbar = () => {
   const handleScroll = () => {
     setWindowScrollY(window.scrollY);
   };
-
   useEffect(() => {
     setTimeout(() => { dispatch(setNavbarHeight(navbarRef.current.getBoundingClientRect().height)) }, 500);
     window.addEventListener("scroll", handleScroll);
@@ -53,11 +52,9 @@ const Navbar = () => {
         <ul
           onMouseOut={() => {
             if (activeId.id) {
-              dispatch(
-                setHoverSpan({ id: null, left: activeId.left, width: activeId.width })
-              );
+              dispatch(setHoverSpan({ id: activeId.id }));
             } else {
-              dispatch(setHoverSpan({ id: null, width: 0 }));
+              dispatch(setHoverSpan({ id: 0 }));
             }
           }}
           ref={ulRef}
@@ -121,30 +118,24 @@ const NavbarSimpleButton = ({ item, parentRef }) => {
   let dispatch = useDispatch();
   const listRef = useRef();
   const { activeId } = useSelector((state) => state.navbar);
-  let { name, id } = item;
-  const [hoverSpans, setHoverSpans] = useState({})
-
+  let { name, id, data } = item;
+  const [mohit, setMohit] = useState()
+  useEffect(() => {
+    setTimeout(() => {
+      let tempHoverspan = calcNavbarHoverSpan(listRef, parentRef)
+      dispatch(setOrientation({ id, ...tempHoverspan }))
+    }, 1000);
+  }, [])
   return (
     <li
       ref={listRef}
       onMouseOver={() => {
-        dispatch(setHovered({ id }))
-        let tempHoverspan = calcNavbarHoverSpan(listRef, parentRef);
-        dispatch(
-          setHoverSpan({
-            id: item.id,
-            ...tempHoverspan
-          })
-        );
+        dispatch(setHoverSpan({ id }));
       }}
+      onMouseOut={() => { console.log(activeId.id, id); activeId.id !== id && setHoverSpan({ id: 0 }) }}
       onClick={() => {
-        let tempHoverspan = calcNavbarHoverSpan(listRef, parentRef);
         dispatch(
-          setActiveId({
-            id: item.id,
-            ...tempHoverspan
-
-          })
+          setActiveId({ id })
         );
       }}
       className={`hidden relative px-4 lg:flex items-center overflow-visible  cursor-pointer hover:text-[#3c3c3c] ${item.id == activeId.id && "text-[#3c3c3c]"
@@ -172,31 +163,22 @@ const NavbarDropdownButton = ({ item, parentRef }) => {
   useEffect(() => {
     id == 5 && dispatch(setGBPdropdown({ left: listRef.current.getBoundingClientRect().left, top: listRef.current.getBoundingClientRect().top }))
     id == 8 && dispatch(setCartDropdown({ right: window.innerWidth - listRef.current.getBoundingClientRect().right, top: listRef.current.getBoundingClientRect().top }))
+    setTimeout(() => {
+      let tempHoverspan = calcNavbarHoverSpan(listRef, parentRef)
+      dispatch(setOrientation({ id, ...tempHoverspan }))
+    }, 1000);
   }, []);
-
   return (
     <li
       ref={listRef}
       onMouseOver={() => {
-        dispatch(setHovered({ id }))
-        let tempHoverspan = calcNavbarHoverSpan(listRef, parentRef);
-        dispatch(
-          setHoverSpan({
-            id: item.id,
-            ...tempHoverspan
-          })
-        );
+        dispatch(setHoverSpan({ id }));
       }}
+      onMouseOut={() => { console.log(activeId.id, id); activeId.id !== id && setHoverSpan({ id: 0 }) }}
       onClick={() => {
         id == 5 && dispatch(setGBPdropdown({ toggleDropdown: !item.dropdown.toggleDropdown }))
         id == 8 && dispatch(setCartDropdown({ toggleDropdown: !item.dropdown.toggleDropdown }))
-        let tempHoverspan = calcNavbarHoverSpan(listRef, parentRef);
-        dispatch(
-          setActiveId({
-            id: item.id,
-            ...tempHoverspan
-          })
-        );
+        dispatch(setActiveId({ id }));
       }}
       className={`hidden relative px-4 lg:flex items-center overflow-visible  cursor-pointer hover:text-[#3c3c3c] ${item.id == activeId.id && "text-[#3c3c3c]"}`}
     >
@@ -204,7 +186,6 @@ const NavbarDropdownButton = ({ item, parentRef }) => {
       {item?.dropdown && <svg fill="none" className={`ml-1 ${data[id - 1].dropdown.toggleDropdown ? "rotate-0" : "rotate-180"}  duration-500 transition-transform`} width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
         <path fill={hoveredId === id ? "#000" : "#ffffff"} d="M8.08579 5.25C8.97669 5.25 9.42286 4.17286 8.79289 3.54289L5.70711 0.457108C5.31658 0.0665832 4.68342 0.0665828 4.29289 0.457107L1.20711 3.54289C0.577143 4.17286 1.02331 5.25 1.91421 5.25L8.08579 5.25Z" />
       </svg>}
-
       {!item?.last && (
         <img
           className="absolute top-1.5 -right-1"

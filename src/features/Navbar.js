@@ -11,7 +11,7 @@ const NavbarSlice = createSlice({
       width: 0,
     },
     activeId: {
-      id: null,
+      id: 0,
       left: 0,
       width: 0,
     },
@@ -19,28 +19,30 @@ const NavbarSlice = createSlice({
       {
         id: 1,
         name: "Products",
-        active: false,
+        left: 0,
+        width: 0,
       },
       {
         id: 2,
         name: "About Us",
-        active: false,
+        left: 0,
+        width: 0,
       },
       {
         id: 3,
         name: "Consultations",
-        active: false,
+        left: 0,
+        width: 0,
       },
       {
         id: 4,
         name: "Support",
-        active: false,
+        left: 0,
+        width: 0,
       },
       {
         id: 5,
         name: "GBP",
-
-        active: false,
         dropdown: {
           left: 0,
           top: 0,
@@ -51,18 +53,18 @@ const NavbarSlice = createSlice({
       {
         id: 6,
         name: "Login",
-        active: false,
+        left: 0,
+        width: 0,
       },
       {
         id: 7,
         name: "Register",
-        active: false,
+        left: 0,
+        width: 0,
       },
       {
         id: 8,
         name: "Cart",
-
-        active: false,
         last: true,
         dropdown: {
           right: 0,
@@ -74,11 +76,20 @@ const NavbarSlice = createSlice({
     ],
   },
   reducers: {
+    setOrientation: (state, action) => {
+      let { id, left, width } = action.payload;
+      state.data.find((item) => item.id == id).left = left;
+      state.data.find((item) => item.id == id).width = width;
+    },
     setActiveId: (state, action) => {
       const GBPdropdownToggle = state.data[4].dropdown.toggleDropdown;
       const CartDropdownToggle = state.data[7].dropdown.toggleDropdown;
       const { id } = action.payload;
-      state.activeId = action.payload;
+      state.activeId.id = id;
+      state.hoverSpan = {
+        left: state.data.find((item) => item.id == id).left,
+        width: state.data.find((item) => item.id == id).width,
+      };
       console.log(action.payload);
       if (GBPdropdownToggle && id == 5) {
         state.activeId.id = null;
@@ -101,9 +112,20 @@ const NavbarSlice = createSlice({
       state.hoveredId = action.payload.id;
     },
     setHoverSpan: (state, action) => {
-      Object.keys(action.payload).forEach((key) => {
-        state.hoverSpan[key] = action.payload[key];
-      });
+      console.log("called bhai");
+      console.log(action.payload);
+      let { id } = action.payload;
+      if (id == 0 || id == null) {
+        state.hoverSpan = {
+          left: 0,
+          width: 0,
+        };
+      } else {
+        state.hoverSpan = {
+          left: state.data.find((item) => item.id == id).left,
+          width: state.data.find((item) => item.id == id).width,
+        };
+      }
     },
     setNavbarHeight: (state, action) => {
       state.navbarHeight = action.payload;
@@ -134,5 +156,6 @@ export const {
   setGBPdropdown,
   setHovered,
   setCartDropdown,
+  setOrientation,
 } = NavbarSlice.actions;
 export default NavbarSlice.reducer;
