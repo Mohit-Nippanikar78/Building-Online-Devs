@@ -7,7 +7,7 @@ import {
 
 import "./App.css";
 import Root from "./Root";
-import { About, Consultation, Homepage, ProductCatalogue, ProductPage, Support } from "./components";
+import { About, Consultation, Homepage, ProductCatalogue, ProductPage, Support, Login, ForgotPassword, ResetPassword, LoginPage } from "./components";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -18,6 +18,11 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/consultations" element={<Consultation />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/login" element={<Login />} >
+          <Route index element={<LoginPage />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="reset-password" element={<ResetPassword />} />
+        </Route>
       </Route>
     )
   );
