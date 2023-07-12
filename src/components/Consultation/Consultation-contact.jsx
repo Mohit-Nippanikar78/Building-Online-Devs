@@ -36,7 +36,7 @@ const ConsultationContact = () => {
           </a>
         </div>
         <div className="lg:py-6 flex lg:flex-row flex-col gap-6 lg:gap-0 items-center justify-between">
-          <img src="/images/consultation/captcha.png" alt="" />
+          <img src="/images/captcha.png" alt="" />
           <div className="w-full h-max px-6">
             <CustomButton text="Submit form" dark={true} type="consultation" />
           </div>

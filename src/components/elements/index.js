@@ -9,3 +9,4 @@ export { default as Heropage } from "./Heropage";
 export { default as Journey } from "./Journey";
 export { default as Whyus } from "./Whyus";
 export { default as Pagination } from "./Pagination";
+export { default as Cart } from "./Cart";
