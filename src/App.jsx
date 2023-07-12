@@ -7,7 +7,7 @@ import {
 
 import "./App.css";
 import Root from "./Root";
-import { About, Consultation, Homepage, ProductCatalogue, ProductPage, Support, Login, ForgotPassword, ResetPassword, LoginPage, Register, Account, Checkout } from "./components";
+import { About, Consultation, Homepage, ProductCatalogue, ProductPage, Support, Login, ForgotPassword, ResetPassword, LoginPage, Register, Account, Checkout, Payment } from "./components";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -26,6 +26,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/account" element={<Account />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/payment" element={<Payment />} />
       </Route>
     )
   );

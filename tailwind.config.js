@@ -18,6 +18,7 @@ export default {
         navy: "#031229",
       },
       colors: {
+        error:"#C81414",
         lime: "#D4F229",
         infoBlue: "#3285DA",
         neutral: {
