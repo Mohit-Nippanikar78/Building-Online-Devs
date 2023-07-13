@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveId, setCartDropdown, setGBPdropdown, setToggle } from "../../features/Navbar";
+import { useNavigate } from 'react-router-dom';
 
 const NavbarOptions = () => {
     const { data, navbarHeight, toggle } = useSelector((state) => state.navbar);
@@ -20,25 +21,26 @@ const NavbarOptions = () => {
 const NavbarButton = ({ item }) => {
     let dispatch = useDispatch();
     const { activeId, data } = useSelector((state) => state.navbar);
-    let { id, name } = item;
+    let { id, name, link } = item;
     let listRef = useRef();
+    let navigate = useNavigate();
     return (
         <>
             <li
                 ref={listRef}
                 onClick={() => {
                     if (id === 5) {
-
                         dispatch(setGBPdropdown({ toggleDropdown: !data[4].dropdown.toggleDropdown }))
                         dispatch(setGBPdropdown({ left: listRef.current.getBoundingClientRect().left + 30, top: listRef.current.getBoundingClientRect().top + 40 }))
                     } else if (id == 8) {
                         dispatch(setCartDropdown({ toggleDropdown: !data[7].dropdown.toggleDropdown }))
                     } else {
-
                         dispatch(setActiveId({ id }));
+                        navigate(link);
+                        dispatch(setToggle(false));
                     }
                 }}
-                className={`relative max-w-[200px] z-30 p-6 flex justify-center items-center     cursor-pointer hover:text-[#3c3c3c] ${id == activeId.id && "text-[#3c3c3c]"}`}
+                className={`relative max-w-[200px] z-30 p-6 flex justify-center items-center ${id == activeId.id && "text-[#3c3c3c]"}`}
                 style={{
                     background: activeId.id == id && "linear-gradient(94deg, #dae988 8.73%, #d4f229 49.92%)"
                 }}
