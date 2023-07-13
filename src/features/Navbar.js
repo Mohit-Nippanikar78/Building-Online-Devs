@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { checkLocalUser, setUser } from "./User";
+import { store } from "./store";
 
-const NavbarSlice = createSlice({
+export const NavbarSlice = createSlice({
   name: "navbar",
   initialState: {
     navbarHeight: 100,
@@ -152,8 +154,26 @@ const NavbarSlice = createSlice({
       state.data[4].dropdown.toggleDropdown = false;
       state.data[7].dropdown.toggleDropdown = false;
     },
+    // setLoginNavbar: (state, action) => {
+    //   console.log("mohit called",action);
+    //   // let loginobj = state.data.find((item) => item.id == 6);
+    //   // loginobj = { ...loginobj, name: "Account", link: "/account" };
+    //   // let registerobj = state.data.find((item) => item.id == 6);
+    //   // loginobj = { ...registerobj, name: "Logout", link: "/logout" };
+    // },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(checkLocalUser.fulfilled, (state, action) => {
+      if (action.payload !== null) {
+        state.data.find((item) => item.id == 6).name = "Account";
+        state.data.find((item) => item.id == 6).link = "/account";
+        state.data.find((item) => item.id == 7).name = "Logout";
+        state.data.find((item) => item.id == 7).link = "/logout";
+      }
+    });
   },
 });
+
 export const {
   setActiveId,
   setHoverSpan,

@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   let dispatch = useDispatch();
   const ulRef = useRef();
+  let navigate = useNavigate();
   const navbarRef = useRef();
   const [windowScrollY, setWindowScrollY] = useState(0);
   const { data, hoverSpan, activeId, toggle } = useSelector((state) => state.navbar);
@@ -33,7 +34,7 @@ const Navbar = () => {
       }}
       ref={navbarRef}
     >
-      <img src="/images/logo.png" className="w-36" alt="" />
+      <img src="/images/logo.png" className="w-36 cursor-pointer" alt="" onClick={() => { navigate("/") }} />
       {window.innerWidth < 1024 ? (<>
         <NavbarOptions />
         {window.innerWidth < 1024 && <CartDropdownPage />}
@@ -174,7 +175,7 @@ const NavbarDropdownButton = ({ item, parentRef }) => {
   return (
     <li
       ref={listRef}
-      onMouseOver={() => {dispatch(setHoverSpan({ id }));}}
+      onMouseOver={() => { dispatch(setHoverSpan({ id })); }}
       onMouseOut={() => { console.log(activeId.id, id); activeId.id !== id && setHoverSpan({ id: 0 }) }}
       onClick={() => {
         id == 5 && dispatch(setGBPdropdown({ toggleDropdown: !item.dropdown.toggleDropdown }))

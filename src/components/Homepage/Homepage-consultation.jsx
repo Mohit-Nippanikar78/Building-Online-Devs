@@ -39,9 +39,8 @@ const HomepageConsultation = () => {
                         ultrices. Ullamcorper eu cursus a elit. Quam urna.
                     </div>
                 </div>
-                <CustomButton text="Get personal consultation" func={() => { navigate("/") }} />
+                <CustomButton text="Get personal consultation" func={() => { navigate("/consultations") }} />
             </div>
-
         </div>
     )
 }

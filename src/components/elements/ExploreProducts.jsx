@@ -2,11 +2,13 @@ import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { CustomButton, LeftplayButton, RightplayButton, ProductCard } from "."
+import { useNavigate } from "react-router-dom";
 
 const ExploreProducts = ({ type, dark }) => {
     const [coursesX, setCoursesX] = useState(0);
     const { courses } = useSelector((state) => state.courses);
     let coursesRef = useRef();
+    let navigate = useNavigate()
     const leftCards = () => {
         if (
             coursesRef.current.scrollWidth -
@@ -28,7 +30,7 @@ const ExploreProducts = ({ type, dark }) => {
         }
     };
     return (
-        <div className={`${type=="homepage"&&"bg-white"}`}>
+        <div className={`${type == "homepage" && "bg-white"}`}>
             <div
                 className="flex items-center flex-col justify-center "
                 style={{
@@ -68,7 +70,7 @@ const ExploreProducts = ({ type, dark }) => {
                             func={leftCards}
                             dark={dark}
                         />
-                        <CustomButton text="view all " dark={dark} />
+                        <CustomButton text="view all " dark={dark} func={() => { navigate("/products") }} />
                         <RightplayButton
                             func={rightCards}
                             dark={dark}

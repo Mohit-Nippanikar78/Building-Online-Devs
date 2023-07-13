@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 
 const HomepageHero = () => {
   const [btnHover, setBtnHover] = useState(false);
   //const framerScroll = useScroll();
+  let navigate = useNavigate();
 
   return (
     <div className="h-full relative">
@@ -44,6 +46,7 @@ const HomepageHero = () => {
           onMouseOut={() => {
             setBtnHover(false);
           }}
+          onClick={() => { navigate("/register") }}
         >
           <div
             className={`relative z-20 px-4 py-2 flex items-center  ${btnHover ? "text-black" : "text-lime"

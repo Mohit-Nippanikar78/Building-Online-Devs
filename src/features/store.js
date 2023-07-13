@@ -4,6 +4,7 @@ import HomecardsReducer from "./Homecards";
 import CoursesReducer from "./Courses";
 import CatalogueReducers from "./Catalogue";
 import CartReducer from "./Cart";
+import UserReducer from "./User";
 export const store = configureStore({
   reducer: {
     navbar: NavbarReducer,
@@ -11,5 +12,6 @@ export const store = configureStore({
     courses: CoursesReducer,
     catalogue: CatalogueReducers,
     cart: CartReducer,
+    user: UserReducer,
   },
 });

@@ -34,7 +34,7 @@ const HomepageAbout = () => {
               ultrices. Ullamcorper eu cursus a elit. Quam urna.
             </div>
           </div>
-          <CustomButton text="React more about us" func={() => { navigate("/") }} />
+          <CustomButton text="React more about us" func={() => { navigate("/about") }} />
         </div>
 
         <img

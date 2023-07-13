@@ -6,6 +6,7 @@ import { Navbar } from "./components";
 import CartDropdown from "./components/Navbar/CartDropdown";
 import GBP from "./components/Navbar/GBP";
 import { setActiveId } from "./features/Navbar";
+import { checkLocalUser } from "./features/User";
 
 const Root = () => {
 
@@ -22,6 +23,7 @@ const Overlays = () => {
   const { data, activeId } = useSelector(state => state.navbar)
   let dispatch = useDispatch()
   useEffect(() => {
+    dispatch(checkLocalUser())
     setTimeout(() => {
       dispatch(setActiveId({ id: data.find(item => { return item?.link === `/${window.location.pathname.split("/")[1]}` }).id }));
     }, 1000);

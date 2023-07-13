@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { CustomButton, Footer } from '../elements'
 import ForgotPassword from './ForgotPassword'
 import ResetPassword from './ResetPassword'
 import { Outlet, useNavigate } from 'react-router-dom'
+import { setUser } from '../../features/User'
+import { useDispatch } from 'react-redux'
 const Login = () => {
     return (
         <div className="bg-navy pt-32  ">
@@ -17,16 +19,19 @@ const Login = () => {
 }
 export const LoginPage = () => {
     const [show, setShow] = useState(false)
-    let navigate = useNavigate()
+    let navigate = useNavigate();
+    let dispatch = useDispatch()
+    let emailRef = useRef();
+    let passwordRef = useRef();
     return (<>
         <img className='w-20' src="/images/login/login-icon.png" alt="" />
         <h1 className="text-2xl lg:text-4xl font-bold mb-4">Login</h1>
         <div className="mx-auto max-w-xs lg:max-w-md text-center text-xs lg:text-sm pb-6">Log in to your account today in order to gain access to your product and manage your account information.</div>
         <div className="flex bg-[#F1F1F110] w-full lg:w-auto p-5   text-sm  gap-6  " style={{ boxShadow: "rgba(241, 241, 241,.7) 0px 0px 2px 0px" }}>
             <div className="flex flex-col gap-4 lg:min-w-[500px] w-full  text-black">
-                <input className="outline-0 p-3 rounded  border-2 border-neutral-700 border-opacity-40 focus:bg-white focus:border-opacity-70" type="text" placeholder="Email address*" />
+                <input ref={emailRef} className="outline-0 p-3 rounded  border-2 border-neutral-700 border-opacity-40 focus:bg-white focus:border-opacity-70" type="text" placeholder="Email address*" />
                 <div className='w-full relative'>
-                    <input className="w-full outline-0 p-3 rounded border-2 border-neutral-700 border-opacity-40 focus:bg-white focus:border-opacity-70" type={show ? "text" : "password"} placeholder="Password*" />
+                    <input ref={passwordRef} className="w-full outline-0 p-3 rounded border-2 border-neutral-700 border-opacity-40 focus:bg-white focus:border-opacity-70" type={show ? "text" : "password"} placeholder="Password*" />
                     <svg className='absolute right-3 bottom-1/3 cursor-pointer' width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg"
                         onMouseUp={() => setShow(false)}
                         onMouseDown={() => setShow(true)}
@@ -45,8 +50,9 @@ export const LoginPage = () => {
                         Forgot Password?
                     </span>
                 </div>
-                <CustomButton text="Submit form" dark={false} type="consultation" />
+                <CustomButton text="Login" dark={false} type="consultation" func={() => { dispatch(setUser()); }} />
             </div>
-        </div></>)
+        </div>
+    </>)
 }
 export default Login;

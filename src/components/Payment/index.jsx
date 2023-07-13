@@ -83,7 +83,7 @@ const Cart = () => {
             <p className="text-sm text-right font-semibold">Total</p>
             <p className="text-sm ">$10.00</p>
         </div>
-        
+
     </div>)
 }
 export default Payment

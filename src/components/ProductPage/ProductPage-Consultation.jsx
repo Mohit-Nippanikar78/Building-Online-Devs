@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CustomButton } from '../elements'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 const ProductPageConsultation = () => {
+    let navigate = useNavigate()
+    const [course, setCourse] = useState({});
+    let { id } = useParams();
+    let { courses } = useSelector(state => state.courses);
+    useEffect(() => {
+
+        setCourse(courses.find(course => course.id === Number(id)))
+    }, [])
+
     return (
         <div className="flex flex-col lg:flex-row lg:gap-12 justify-center">
             <img src="/images/course-1-thumbnail.png" className='max-w-sm h-max my-auto' alt="" />
@@ -30,11 +41,11 @@ const ProductPageConsultation = () => {
                         </div>
                     </div>
                     <span className=" ml-2 lg:ml-4 text-lg font-semibold tracking-[0.1rem]  ">
-                        $199.99
+                        ${course?.price}
                     </span>
                 </div>
                 <div className='flex gap-4'>
-                    <CustomButton text='Go Back' />
+                    <CustomButton text='Go Back' func={() => { navigate(-1) }} />
                     <CustomButton text='Add to Cart' type="AddToCart" />
                 </div>
                 <div className="text-xs max-w-sm mt-4">
