@@ -20,13 +20,26 @@ const Root = () => {
 };
 
 const Overlays = () => {
-  const { data, activeId } = useSelector(state => state.navbar)
+  const { data } = useSelector(state => state.navbar)
+  const titleDocument = () => {
+    if (window.location.pathname == "/") {
+      document.title = `Building Online Devs`
+    } else {
+      document.title = `BOD - ${data.find(item => { return item?.link === `/${window.location.pathname.split("/")[1]}` }).name}`
+    }
+  }
   let dispatch = useDispatch()
   useEffect(() => {
     dispatch(checkLocalUser())
     setTimeout(() => {
       dispatch(setActiveId({ id: data.find(item => { return item?.link === `/${window.location.pathname.split("/")[1]}` }).id }));
     }, 1000);
+    window.addEventListener("click", titleDocument, false);
+    return () => {
+      window.removeEventListener("hashchange", () => {
+        document.title = `Building Online Devs- ${window.location.pathname.split("/")[1]}`
+      });
+    }
   }, [])
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CustomButton, Footer } from '../elements'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Payment = () => {
     let { paymentSuccess } = useSelector(state => state.cart)
@@ -31,6 +32,7 @@ const Payment = () => {
 }
 const OrderSummary = () => {
     let { paymentSuccess } = useSelector(state => state.cart)
+    let navigate = useNavigate()
     return (<>
         <div className="flex gap-6 items-center  flex-col bg-[#F1f1f109] p-6 lg:w-max mx-auto lg:rounded-md my-8">
             <div className="text-2xl font-semibold">
@@ -58,7 +60,7 @@ const OrderSummary = () => {
                         </div>
                     </div>
                 </div>
-                <CustomButton text={paymentSuccess ? "Back Home" : "Try Again"} dark={false} type="consultation" />
+                <CustomButton text={paymentSuccess ? "Back Home" : "Try Again"} dark={false} type="consultation" func={()=>{navigate("/")}} />
             </div>
         </div></>)
 }

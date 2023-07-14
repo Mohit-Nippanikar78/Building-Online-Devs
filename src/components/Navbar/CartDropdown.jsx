@@ -1,8 +1,10 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const CartDropdown = () => {
     let { data } = useSelector(state => state.navbar)
+    let navigate=useNavigate()
     return (
         <div className={`mt-2 top-0 rounded-lg right-0 py-4 px-6 gap-4 bg-white  max-w-max z-50 fixed flex flex-col items-center w-full `}
             style={{ right: (data[7].dropdown.right), top: data[7].dropdown.top + 40 }}
@@ -70,9 +72,8 @@ const CartDropdown = () => {
                     </div>
                 </div>
             </div>
-
-
-            <button className={`border-[#212121] text-[#212121] w-full capitalize text-sm  transition-all duration-700 hover:bg-lime  hover:text-black hover:shadow-lg hover:border-lime px-3 py-1.5 rounded-md   border-2 `}>
+            <button className={`border-[#212121] text-[#212121] w-full capitalize text-sm  transition-all duration-700 hover:bg-lime  hover:text-black hover:shadow-lg hover:border-lime px-3 py-1.5 rounded-md   border-2 `}
+            onClick={()=>{navigate("/checkout")}}>
                 Secure Checkout
             </button>
 

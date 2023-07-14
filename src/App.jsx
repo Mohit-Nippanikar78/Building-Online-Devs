@@ -8,7 +8,10 @@ import {
 import "./App.css";
 import Root from "./Root";
 import { About, Consultation, Homepage, ProductCatalogue, ProductPage, Support, Login, ForgotPassword, ResetPassword, LoginPage, Register, Account, Checkout, Payment, Logout } from "./components";
+import { useEffect } from "react";
 function App() {
+
+  
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>

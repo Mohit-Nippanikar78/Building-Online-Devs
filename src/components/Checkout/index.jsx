@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Cart, CustomButton, Footer } from '../elements'
+import { useNavigate } from 'react-router-dom'
 
 const Checkout = () => {
     return (
@@ -76,6 +77,7 @@ const BillingAddress = () => {
         </div></>)
 }
 const OrderSummary = () => {
+    let navigate = useNavigate()
     return (<>
         <div className="flex gap-6 items-center  flex-col bg-[#F1f1f109] p-6 lg:w-max mx-auto lg:rounded-md my-8">
             <div className="text-2xl font-semibold">
@@ -111,10 +113,8 @@ const OrderSummary = () => {
                     </div>
                 </div>
                 <div className="bg-neutral-800">
-                    <CustomButton text="Secure Payment" dark={false} type="consultation" />
+                    <CustomButton text="Secure Payment" dark={false} type="consultation" func={useCallback(()=>{navigate("/payment")})} />
                 </div>
-
-
             </div>
         </div></>)
 }
