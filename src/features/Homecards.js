@@ -7,11 +7,11 @@ const HomecardsSlice = createSlice({
     data: [
       {
         id: 1,
-        title: "Discover our in-depth resources",
+        title: "Discover our indepth resources",
         content:
           "Lorem ipsum dolor sit amet consectetur. Laoreet cum etiam libero non amet. Nunc facilisi erat viverra in turpis. Risus ac eu molestie libero lobortis sed.",
-        buttonText: "Get Started",
-        buttonLink: "/",
+        buttonText: "Explore Products",
+        buttonLink: "/products",
       },
       {
         id: 2,
@@ -23,7 +23,7 @@ const HomecardsSlice = createSlice({
       },
       {
         id: 3,
-        title: "level up your dev knowledge anyywhere",
+        title: "level up your dev knowledge anywhere",
         content:
           "Lorem ipsum dolor sit amet consectetur. Laoreet cum etiam libero non amet. Nunc facilisi erat viverra in turpis. Risus ac eu molestie libero lobortis sed.",
         buttonText: "Access Your Account",

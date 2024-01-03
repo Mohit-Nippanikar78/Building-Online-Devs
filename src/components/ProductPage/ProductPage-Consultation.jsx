@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { CustomButton } from '../elements'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductPageConsultation = () => {
     let navigate = useNavigate()
+    let dispatch = useDispatch();
     const [course, setCourse] = useState({});
+    const [quantity, setQuantity] = useState(1);
     let { id } = useParams();
     let { courses } = useSelector(state => state.courses);
     useEffect(() => {
-
         setCourse(courses.find(course => course.id === Number(id)))
     }, [])
+    const addQuantity = () => {
+        setQuantity(v => v + 1)
+    }
+    const subQuantity = () => {
+        quantity > 1 && setQuantity(v => v - 1)
+    }
 
     return (
         <div className="flex flex-col lg:flex-row lg:gap-12 justify-center">
@@ -20,7 +27,7 @@ const ProductPageConsultation = () => {
                 <div>
                     <div className="text-infoBlue text-xs font-semibold ">Video</div>
                     <div className="max-w-xs font-semibold tracking-[0.1rem] text-xl text-wrap">
-                        The Complete Web Developer Course 2.0
+                        {course?.name}
                     </div>
                 </div>
                 <div className="flex items-center">
@@ -29,13 +36,13 @@ const ProductPageConsultation = () => {
                             QTY
                         </div>
                         <div className="relative flex bg-transparent py-2 pl-3 pr-6 border-white border-2 rounded">
-                            <input type="number" className='bg-transparent outline-0 w-4 text-xs' value="0" />
+                            <input type="number" className='bg-transparent outline-0 w-4 text-xs' value={quantity} />
                             <div className="absolute right-0 top-0 p-1 pr-2 flex h-full flex-col justify-around">
-                                <svg className={`rotate-180 w-2.5`} width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.5" d="M11.627 1.31372L6.31324 6.62743L0.999536 1.31372" stroke="white" stroke-width="2" />
+                                <svg className={`rotate-180 w-2.5 cursor-pointer `} width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={addQuantity}>
+                                    <path opacity="1" d="M11.627 1.31372L6.31324 6.62743L0.999536 1.31372" stroke="white" stroke-width="2" />
                                 </svg>
-                                <svg className={`w-2.5`} width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.5" d="M11.627 1.31372L6.31324 6.62743L0.999536 1.31372" stroke="white" stroke-width="2" />
+                                <svg className={`w-2.5 cursor-pointer`} width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={subQuantity}>
+                                    <path opacity={quantity > 1 ? "1" : ".5"} d="M11.627 1.31372L6.31324 6.62743L0.999536 1.31372" stroke="white" stroke-width="2" />
                                 </svg>
                             </div>
                         </div>
@@ -46,7 +53,7 @@ const ProductPageConsultation = () => {
                 </div>
                 <div className='flex gap-4'>
                     <CustomButton text='Go Back' func={() => { navigate(-1) }} />
-                    <CustomButton text='Add to Cart' type="AddToCart" />
+                    <CustomButton text='Add to Cart' type="AddToCart" func={() => {dis}} />
                 </div>
                 <div className="text-xs max-w-sm mt-4">
                     Lorem ipsum dolor sit amet consectetur. Quisque mattis pretium amet magna ac nunc odio id ac. Sed velit ullamcorper sed duis rhoncus est. Dignissim eu dolor arcu pulvinar mus.

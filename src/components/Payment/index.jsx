@@ -60,7 +60,7 @@ const OrderSummary = () => {
                         </div>
                     </div>
                 </div>
-                <CustomButton text={paymentSuccess ? "Back Home" : "Try Again"} dark={false} type="consultation" func={()=>{navigate("/")}} />
+                <CustomButton text={paymentSuccess ? "Back Home" : "Try Again"} dark={false} type="consultation" func={() => { navigate("/") }} />
             </div>
         </div></>)
 }

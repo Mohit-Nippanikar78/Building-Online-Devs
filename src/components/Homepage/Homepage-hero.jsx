@@ -25,21 +25,21 @@ const HomepageHero = () => {
       ></video>
 
       <div className="relative md:min-h-[600px] lg:w-1/2 lg:ml-40 lg:h-screen flex md:justify-center flex-col p-6 items-start  text-white max-w-lg ">
-        <div className=" text-3xl lg:text-5xl capitalize font-extrabold tracking-[2px]">
+        <div className=" text-3xl lg:text-5xl capitalize font-semibold tracking-[.64px]">
           <div className="lg:mb-4 mb-2">
             <span id="homepage-heading-gradient">building </span>
             future
           </div>
           <div className="w-max">online developers</div>
         </div>
-        <div className="font-xs   tracking-[0.001rem] text-xs lg:my-4 my-8 max-w-md">
+        <div className="font-normal tracking-[0.001rem] text-neutral-500 text-xs mt-6 max-w-md">
           Lorem ipsum dolor sit amet consectetur. Facilisi nunc eu egestas at
           blandit. Quisque egestas quam nibh et semper. Dictum sit a mi
           tristique in tincidunt porta tincidunt fringilla. Scelerisque magna
           ipsum vitae pharetra bibendum. Morbi pretium ullamcorper penatibus.
         </div>
         <div
-          className="relative cursor-pointer"
+          className="relative cursor-pointer mt-8"
           onMouseOver={() => {
             setBtnHover(true);
           }}

@@ -6,10 +6,13 @@ let courseSlice = createSlice({
   initialState: {
     courses: initialCourses,
     loading: false,
+    cart: [],
   },
   reducers: {
     addToCart: (state, action) => {
-      state.courses[action.payload.id].cart = true;
+      let { quantity, id } = action.payload;
+      let tempCourse = state.courses.find((course) => course.id === id);
+      cart.push({ ...tempCourse, quantity });
     },
     removeFromCart: (state, action) => {
       state.courses[action.payload.id].cart = false;

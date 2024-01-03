@@ -16,8 +16,7 @@ const ProductCard = ({ course, type }) => {
                     {desc}   </div>
                 <div className="flex justify-between ">
                     <span className="text-2xl font-extrabold text-[#212121]">
-
-                        ${id}
+                        ${price}
                     </span>
                     <button className="rounded-md border-[#3c3c3c] px-4 py-2 border-2 border-solid" onClick={() => { navigate(`/product/${id}`) }}>
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

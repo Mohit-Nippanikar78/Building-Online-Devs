@@ -50,5 +50,5 @@ export const checkLocalUser = createAsyncThunk(
 //     return userInfo;
 //   };
 
-export const { setUser ,removeUser} = userSlice.actions;
+export const { setUser, removeUser } = userSlice.actions;
 export default userSlice.reducer;
